@@ -1,6 +1,6 @@
 # ENGR271 Digital Logic Design
 
-This repository contains homework, labs, data, and other resources for the ENGR203 Signals class.
+This repository contains homework, labs, data, and other resources for the ENGR271 Digital Logic Design class.
 
 ## Table of Contents
 
