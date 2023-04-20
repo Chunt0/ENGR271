@@ -1,0 +1,81 @@
+# Compile of lab1.v was successful.
+vsim -gui work.lab1
+# vsim -gui work.lab1 
+# Start time: 17:04:07 on Apr 14,2023
+# Loading work.lab1
+add wave -position insertpoint  \
+sim:/lab1/A \
+sim:/lab1/B \
+sim:/lab1/C \
+sim:/lab1/Z
+force -freeze sim:/lab1/A 0 0
+force -freeze sim:/lab1/B 0 0
+force -freeze sim:/lab1/C 0 0
+run
+force -freeze sim:/lab1/C 1 0
+run
+force -freeze sim:/lab1/B 1 0
+force -freeze sim:/lab1/C 0 0
+run
+force -freeze sim:/lab1/C 1 0
+run
+force -freeze sim:/lab1/C 0 0
+force -freeze sim:/lab1/C St0 0
+force -freeze sim:/lab1/A 1 0
+force -freeze sim:/lab1/B 0 0
+force -freeze sim:/lab1/C St0 0
+force -freeze sim:/lab1/A St1 0
+run
+force -freeze sim:/lab1/C 1 0
+run
+force -freeze sim:/lab1/C 0 0
+force -freeze sim:/lab1/B 1 0
+run
+force -freeze sim:/lab1/C 1 0
+# Load canceled
+vsim -gui work.lab1
+# End time: 17:09:55 on Apr 14,2023, Elapsed time: 0:05:48
+# Errors: 0, Warnings: 5
+# vsim -gui work.lab1 
+# Start time: 17:09:55 on Apr 14,2023
+# Loading work.lab1
+add wave -position insertpoint  \
+sim:/lab1/A \
+sim:/lab1/B \
+sim:/lab1/C \
+sim:/lab1/Z
+force -freeze sim:/lab1/C 0 0
+force -freeze sim:/lab1/A 0 0
+force -freeze sim:/lab1/B 0 0
+force -freeze sim:/lab1/A St0 0
+force -freeze sim:/lab1/B St0 0
+force -freeze sim:/lab1/C St0 0
+run
+force -freeze sim:/lab1/A St0 0
+force -freeze sim:/lab1/B St0 0
+force -freeze sim:/lab1/C 1 0
+run
+force -freeze sim:/lab1/A St0 0
+force -freeze sim:/lab1/B 1 0
+force -freeze sim:/lab1/C 0 0
+run
+force -freeze sim:/lab1/A St0 0
+force -freeze sim:/lab1/B St1 0
+force -freeze sim:/lab1/C 1 0
+run
+force -freeze sim:/lab1/A 1 0
+force -freeze sim:/lab1/B 0 0
+force -freeze sim:/lab1/C 0 0
+run
+force -freeze sim:/lab1/A St1 0
+force -freeze sim:/lab1/B St0 0
+force -freeze sim:/lab1/C 1 0
+run
+force -freeze sim:/lab1/A St1 0
+force -freeze sim:/lab1/B 1 0
+force -freeze sim:/lab1/C 0 0
+run
+force -freeze sim:/lab1/A St1 0
+force -freeze sim:/lab1/B St1 0
+force -freeze sim:/lab1/C 1 0
+run
