@@ -1,0 +1,364 @@
+\documentclass[11pt]{article}
+\usepackage[margin=.9in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{listings}
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  frame=single,
+  language=Verilog,
+  numbers=left,
+  numberstyle=\tiny,
+  showstringspaces=false
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+\definecolor{mycolor}{rgb}{0.1, 0.1, 0.5}
+\title{\textbf{{\huge Combinational Logic (Computer Arithmetic) }}}
+\author{Christopher Hunt}
+\date{}
+\usepackage{graphicx} 
+\usepackage{fancyhdr}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{ENGR 272}
+\lfoot{Christopher Hunt}
+\lhead{Combinational Logic (Computer Arithmetic)}
+\rhead{\thepage}
+\maketitle
+\section*{\textcolor{mycolor}{Objectives}}
+
+The objective of this lab is to design and implement a 4-bit ripple-carry adder using 8 switches as inputs and LEDs on the FPGA to display the 5-bit output. By completing this project, we will gain a deeper understanding of creating block diagrams, building logic schematics using Quartus Prime, and simulating digital logic designs. This lab will provide hands-on experience in implementing a basic adder using combinational logic, which is a critical component of processors and other digital systems.
+\vspace{5mm}
+\hrule
+\section*{\textcolor{mycolor}{Equipment}}
+\begin{itemize}
+  \item Quartus Prime Lite Edition V. 20.1.1
+  \item DE10-Lite kit with MAX10 10M50DAF484C7G FPGA
+  \item USB to USB-B cable
+  \item Chapter 5 of Digital Design and Computer Architecture: ARM Edition by Sarah L. Harris and David Harris
+\end{itemize}
+\vspace{5mm}
+\hrule
+\section*{\textcolor{mycolor}{Design}}
+In this lab we are designing and implementing a 4-bit ripple-carry adder. This is a digital circuit used to add two binary numbers and is the basic building block for ALU's. A ripple-carry adder works cascading full adders (4 bits requires 4 adders). By adding the least significant bits first and then propagating the carry to the next bit position the combinational logic design is able to add two binary numbers. 
+
+The fuller adder will have 3 inputs, A, B, and C\_in and to outputs Sum and C\_out (fig.1). The boolean logic for each output is as follows:
+\begin{align*}
+    Sum &= A \oplus B \oplus C_{in} \\
+    C_{out} &= A*B + A*C_{in} + B*C_{in}
+\end{align*}
+This logic design creates the truth table that can be viewed in Table 1. 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{ENGR272_lab2_fulladder_schematic.png}
+  \caption{Fuller Adder Schematic}
+  \label{fig:1}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    A & B & Carry In & Value (2-bit Binary) & Value (Decimal) \\ \hline
+    0b0 & 0b0 & 0b0 & 0b00 & 0 \\ \hline
+    0b0 & 0b0 & 0b1 & 0b01 & 1 \\ \hline
+    0b0 & 0b1 & 0b0 & 0b01 & 1 \\ \hline
+    0b0 & 0b1 & 0b1 & 0b10 & 2 \\ \hline
+    0b1 & 0b0 & 0b0 & 0b01 & 1 \\ \hline
+    0b1 & 0b0 & 0b1 & 0b10 & 2 \\ \hline
+    0b1 & 0b1 & 0b0 & 0b10 & 2 \\ \hline
+    0b1 & 0b1 & 0b1 & 0b11 & 3 \\ \hline
+    \end{tabular}
+    \caption{Full-Adder Truth Table}
+\end{table}
+Once the the full adder is designed, this module can be utilized in the overall block diagram for the 4-bit ripple carry adder (fig. 2). This adder will be able to display up to 5-bits of information (up to the value of 31 in decimal). Table 2 illustrates a partial truth table for the 4-bit adder.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{ENGR272_lab2_block_diagram.png}
+  \caption{4-bit Ripple Carry Adder}
+  \label{fig:2}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+    \hline
+    4-Bit Input A & 4-Bit Input B & Output Value (5-bit Binary) & Value (Decimal) & Value (Hex) \\
+    \hline
+    0b0000 & 0b0000 & 0b00000 & 0 & 0h00 \\ \hline
+    0b0000 & 0b0001 & 0b00001 & 1 & 0h01 \\ \hline
+    0b0000 & 0b0010 & 0b00010 & 2 & 0h02 \\ \hline
+    0b0000 & 0b0011 & 0b00011 & 3 & 0h03 \\ \hline
+    0b0000 & 0b0100 & 0b00100 & 4 & 0h04 \\ \hline
+    0b0000 & 0b0101 & 0b00101 & 5 & 005 \\ \hline
+    0b1000 & 0b0000 & 0b01000 & 8 & 0h08 \\ \hline
+    0b1000 & 0b0001 & 0b01001 & 9 & 0h09 \\ \hline
+    0b1000 & 0b0010 & 0b01010 & 10 & 0h0A \\ \hline
+    0b1000 & 0b0011 & 0b01011 & 11 & 0h0B \\ \hline
+    0b1111 & 0b0011 & 0b10010 & 18 & 0h12 \\ \hline
+    0b1111 & 0b1000 & 0b10111 & 23 & 0h17 \\ \hline
+    0b1111 & 0b1010 & 0b11001 & 25 & 0h19 \\ \hline
+    0b1111 & 0b1011 & 0b11010 & 26 & 0h1A \\ \hline
+    \end{tabular}
+    \caption{Partial 4-bit Adder Truth Table}
+    \label{tab:my_label}
+\end{table}
+
+The 4-bit inputs, A and B, and the first Carry in were assigned to the switches on the DE10-Lite, while the 5-bit output was sent to the LED's. The exact pin placement can be viewed in tables 3 and 4.
+\begin{table}[H]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tabular}{|c|c|}
+      \hline
+      \textbf{Input PIN} & \textbf{FPGA PIN} \\
+      \hline
+      A0 & PIN\_C10 \\
+      \hline
+      A1 & PIN\_C11 \\
+      \hline
+      A2 & PIN\_D12 \\
+      \hline
+      A3 & PIN\_C12 \\
+      \hline
+      B0 & PIN\_A12 \\
+      \hline
+      B1 & PIN\_B12 \\
+      \hline
+      B2 & PIN\_A13 \\
+      \hline
+      B3 & PIN\_A14 \\
+      \hline
+      C\_in & PIN\_F15 \\
+      \hline
+    \end{tabular}
+    \caption{Input PIN to FPGA PIN Mapping}
+  \end{minipage}\hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \begin{tabular}{|c|c|}
+      \hline
+      \textbf{Output PIN} & \textbf{FPGA PIN} \\
+      \hline
+      Z0 & PIN\_A8 \\
+      \hline
+      Z1 & PIN\_A9 \\
+      \hline
+      Z2 & PIN\_A10 \\
+      \hline
+      Z3 & PIN\_B10 \\
+      \hline
+      Z4 & PIN\_D13 \\
+      \hline
+    \end{tabular}
+    \caption{Output PIN to FPGA PIN Mapping}
+  \end{minipage}
+\end{table}
+
+
+\vspace{5mm}
+\hrule
+
+\section*{\textcolor{mycolor}{Simulation}}
+The 4-bit ripple carry adder design was compiled using Quartus Prime Lite and a verilog file was exported. This was then used in ModelSim to simulate the design before hardware implementation. The simulation (fig. 3) produced the expected output as desrcibed from Table 2.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.8\textwidth]{ENGR272_lab2_modelsim.png}
+  \caption{Simulation of Logic Design in ModelSim}
+  \label{fig:3}
+\end{figure}
+\vspace{5mm}
+\hrule
+
+\section*{\textcolor{mycolor}{Implementation}}
+Upon successful completion of the design in Quartus Prime and simulation using ModelSim, the HDL program was uploaded to the DE10-Lite. All switch pin and LED assignments functioned according to the design and the output correctly matched the expected truth tables from above.
+\vspace{5mm}
+\hrule
+
+\section*{\textcolor{mycolor}{Observations}}
+This lab went smoothly for every section. I had to review some content from lab 1 to remember how to appropriately use Quartus Prime. This was to be expected and helped reinforce the basics that were taught in lab 1.
+\vspace{5mm}
+\hrule
+
+\section*{\textcolor{mycolor}{Conclusion}}
+The lab focused on the design and implementation of a 4-bit ripple-carry adder using combinational logic. The objectives were to gain a deeper understanding of creating block diagrams, building logic schematics using Quartus Prime, and simulating digital logic designs. Additionally, the lab aimed to provide hands-on experience in implementing a basic adder using combinational logic, which is an essential component of processors and other digital systems.
+
+During the lab, the 4-bit ripple-carry adder was designed by cascading full adders. The full adder logic involved three inputs (A, B, and Cin) and two outputs (Sum and Cout). The truth table for the full adder was constructed, and subsequently, the 4-bit ripple carry adder was built using the full adder module. The adder was capable of displaying up to 5-bit output values.
+
+The design was simulated using ModelSim, ensuring that the logic behaved as expected. The simulation confirmed that the outputs matched the truth tables derived from the design.
+
+Following successful simulation, the design was implemented on the DE10-Lite FPGA board. The inputs were connected to switches, and the outputs were displayed using LEDs. The physical implementation validated that the design and pin assignments were correct, and the outputs matched the expected truth tables.
+\vspace{5mm}
+\hrule
+
+\section*{\textcolor{mycolor}{Study Questions}}
+\subsubsection*{\textcolor{mycolor}{1. Explain how you would convert your 4-bit adder to a 4-bit adder/subtractor.}}
+To convert this to an adder/subtractor the design would have to be modified in this way:
+\begin{itemize}
+    \item First the counting system would need to be in twos complement. 
+    \item The full adder would be given a subtract control pin, this would determine what mode the adder is on, either add or subtract.
+    \item If the control switch was in add mode (SUB pin is LOW) the full adders would work as before.
+    \item If the control switch was in subtract mode (SUB pin HIGH), the full adders would be required to invert the B bit using an XOR gate with B and SUB as inputs before B is fed into the adder. If the full adder is in the position of the least significant bit, add one. Addition would then be performed as before.
+\end{itemize}
+
+\subsubsection*{\textcolor{mycolor}{2. In your own words, explain what pull resistors do in the FPGA.}}
+Pull resistors allow designers to set default values to FPGA pins, preventing floating signals and ensuring predictable behavior. By setting the pins to a known state, designers can avoid potential issues that may arise from undefined logic levels, such as unintended switching or interference. 
+\subsubsection*{\textcolor{mycolor}{3. Explain your selection for the pull mode for the pin connected to the least-significant full-adder's carry-in.}}
+I chose to place the least significant bits Carry In pin to a switch, this allowed me to select which value I wanted it to be set to and aided in testing the implementation of the program on the device. 
+
+\section*{\textcolor{mycolor}{Appendix}}
+
+\textbf{lab2\_fulladder.v}
+\begin{lstlisting}
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// PROGRAM		"Quartus Prime"
+// VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+// CREATED		"Thu Apr 27 12:10:55 2023"
+
+module lab2_fulladder(
+	A,
+	B,
+	C_in,
+	Sum,
+	C_out
+);
+
+input wire	A;
+input wire	B;
+input wire	C_in;
+output wire	Sum;
+output wire	C_out;
+
+wire	SYNTHESIZED_WIRE_0;
+wire	SYNTHESIZED_WIRE_1;
+wire	SYNTHESIZED_WIRE_2;
+wire	SYNTHESIZED_WIRE_3;
+
+assign	SYNTHESIZED_WIRE_0 = A ^ B;
+assign	Sum = SYNTHESIZED_WIRE_0 ^ C_in;
+assign	SYNTHESIZED_WIRE_3 = A & B;
+assign	SYNTHESIZED_WIRE_1 = A & C_in;
+assign	SYNTHESIZED_WIRE_2 = B & C_in;
+assign	C_out = SYNTHESIZED_WIRE_1 | SYNTHESIZED_WIRE_2 | SYNTHESIZED_WIRE_3;
+
+endmodule
+\end{lstlisting}
+
+\textbf{lab2\_block\_schem.v}
+\begin{lstlisting}
+    // Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// PROGRAM		"Quartus Prime"
+// VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+// CREATED		"Thu Apr 27 12:11:03 2023"
+
+module lab2_block_schem(
+	A0,
+	B0,
+	C_in,
+	A1,
+	A2,
+	B2,
+	A3,
+	B3,
+	B1,
+	Z0,
+	Z1,
+	Z2,
+	Z3,
+	Z4
+);
+
+
+input wire	A0;
+input wire	B0;
+input wire	C_in;
+input wire	A1;
+input wire	A2;
+input wire	B2;
+input wire	A3;
+input wire	B3;
+input wire	B1;
+output wire	Z0;
+output wire	Z1;
+output wire	Z2;
+output wire	Z3;
+output wire	Z4;
+
+wire	SYNTHESIZED_WIRE_0;
+wire	SYNTHESIZED_WIRE_1;
+wire	SYNTHESIZED_WIRE_2;
+
+
+
+
+
+lab2_fulladder	b2v_inst(
+	.A(A0),
+	.B(B0),
+	.C_in(C_in),
+	.Sum(Z0),
+	.C_out(SYNTHESIZED_WIRE_0));
+
+
+lab2_fulladder	b2v_inst1(
+	.A(A1),
+	.B(B1),
+	.C_in(SYNTHESIZED_WIRE_0),
+	.Sum(Z1),
+	.C_out(SYNTHESIZED_WIRE_1));
+
+
+lab2_fulladder	b2v_inst2(
+	.A(A2),
+	.B(B2),
+	.C_in(SYNTHESIZED_WIRE_1),
+	.Sum(Z2),
+	.C_out(SYNTHESIZED_WIRE_2));
+
+
+lab2_fulladder	b2v_inst3(
+	.A(A3),
+	.B(B3),
+	.C_in(SYNTHESIZED_WIRE_2),
+	.Sum(Z3),
+	.C_out(Z4));
+
+
+endmodule
+
+\end{lstlisting}
+\end{document}
