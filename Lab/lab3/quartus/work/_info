@@ -1,0 +1,202 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA_lite/20.1
+vlab3
+!s110 1682729570
+!i10b 1
+!s100 S3h;VM`2fQjVz7_8=_>BV0
+Z0 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IC4MVY23R`TTcBUnzdTG[90
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/IA237-05/Desktop/lab3
+w1682729224
+8C:/Users/IA237-05/Desktop/lab3/lab3.v
+FC:/Users/IA237-05/Desktop/lab3/lab3.v
+!i122 11
+L0 20 89
+Z3 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1682729570.000000
+!s107 C:/Users/IA237-05/Desktop/lab3/lab3.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/IA237-05/Desktop/lab3/lab3.v|
+!i113 1
+Z4 o-work work
+Z5 tCvgOpt 0
+vS_a
+Z6 !s110 1682729361
+!i10b 1
+!s100 V<[A;P?lzj`75Ig:^;I_h3
+R0
+Im^PF?34hC[A2NQ2CLgC142
+R1
+R2
+w1682729283
+8C:/Users/IA237-05/Desktop/lab3/S_a.v
+FC:/Users/IA237-05/Desktop/lab3/S_a.v
+!i122 3
+Z7 L0 20 47
+R3
+r1
+!s85 0
+31
+Z8 !s108 1682729361.000000
+!s107 C:/Users/IA237-05/Desktop/lab3/S_a.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/IA237-05/Desktop/lab3/S_a.v|
+!i113 1
+R4
+R5
+n@s_a
+vS_b
+R6
+!i10b 1
+!s100 @[K<PV?H0h1lNKKK7ibdm1
+R0
+IiePa>6G9JznBb4DjgW0O@1
+R1
+R2
+w1682729279
+8C:/Users/IA237-05/Desktop/lab3/S_b.v
+FC:/Users/IA237-05/Desktop/lab3/S_b.v
+!i122 4
+Z9 L0 20 44
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/IA237-05/Desktop/lab3/S_b.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/IA237-05/Desktop/lab3/S_b.v|
+!i113 1
+R4
+R5
+n@s_b
+vS_c
+R6
+!i10b 1
+!s100 _ficHFkDM[0_>8EDN]dm^0
+R0
+IGE;a`;z5E??l`c[IZjegS3
+R1
+R2
+w1682729274
+8C:/Users/IA237-05/Desktop/lab3/S_c.v
+FC:/Users/IA237-05/Desktop/lab3/S_c.v
+!i122 5
+L0 20 41
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/IA237-05/Desktop/lab3/S_c.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/IA237-05/Desktop/lab3/S_c.v|
+!i113 1
+R4
+R5
+n@s_c
+vS_d
+R6
+!i10b 1
+!s100 7ZLLM6[;YEFVfPMSdmP6Q0
+R0
+IYBbUm>YFU`U40HEh2SO2P0
+R1
+R2
+w1682729268
+8C:/Users/IA237-05/Desktop/lab3/S_d.v
+FC:/Users/IA237-05/Desktop/lab3/S_d.v
+!i122 6
+R7
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/IA237-05/Desktop/lab3/S_d.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/IA237-05/Desktop/lab3/S_d.v|
+!i113 1
+R4
+R5
+n@s_d
+vS_e
+!s110 1682729365
+!i10b 1
+!s100 iPTHe=P<1Sm@<>XB`f^kO2
+R0
+IF^AJ2GnT`J;hbMX0Ph@3]2
+R1
+R2
+w1682729263
+8C:/Users/IA237-05/Desktop/lab3/S_e.v
+FC:/Users/IA237-05/Desktop/lab3/S_e.v
+!i122 10
+R9
+R3
+r1
+!s85 0
+31
+!s108 1682729364.000000
+!s107 C:/Users/IA237-05/Desktop/lab3/S_e.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/IA237-05/Desktop/lab3/S_e.v|
+!i113 1
+R4
+R5
+n@s_e
+vS_f
+R6
+!i10b 1
+!s100 KgQXDPg`z@BfHBVPBS2_H2
+R0
+IWDVB=WnKLDdK4fU:ZKDi@1
+R1
+R2
+w1682729257
+8C:/Users/IA237-05/Desktop/lab3/S_f.v
+FC:/Users/IA237-05/Desktop/lab3/S_f.v
+!i122 8
+R9
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/IA237-05/Desktop/lab3/S_f.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/IA237-05/Desktop/lab3/S_f.v|
+!i113 1
+R4
+R5
+n@s_f
+vS_g
+R6
+!i10b 1
+!s100 3LzDD^Woc5fWL=k=UJ61=2
+R0
+I9e`KID70Xj0Yz2n@IIOBS1
+R1
+R2
+w1682729235
+8C:/Users/IA237-05/Desktop/lab3/S_g.v
+FC:/Users/IA237-05/Desktop/lab3/S_g.v
+!i122 9
+R9
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/IA237-05/Desktop/lab3/S_g.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/IA237-05/Desktop/lab3/S_g.v|
+!i113 1
+R4
+R5
+n@s_g

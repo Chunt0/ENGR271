@@ -1,0 +1,115 @@
+# Compile of lab3.v was successful.
+# Compile of S_d.v was successful.
+# Compile of lab3.v was successful.
+# Compile of S_a.v was successful.
+# Compile of S_b.v was successful.
+# Compile of S_c.v was successful.
+# Compile of S_d.v was successful.
+# Compile of S_e.v was successful.
+# Compile of S_f.v was successful.
+# Compile of S_g.v was successful.
+# 8 compiles, 0 failed with no errors.
+# Compile of S_e.v was successful.
+# Load canceled
+vsim -gui work.lab3
+# vsim -gui work.lab3 
+# Start time: 17:49:40 on Apr 28,2023
+# Loading work.lab3
+# Loading work.S_a
+# Loading work.S_c
+# Loading work.S_d
+# Loading work.S_e
+# Loading work.S_f
+# Loading work.S_g
+# Loading work.S_b
+add wave -position insertpoint  \
+sim:/lab3/D0 \
+sim:/lab3/D1 \
+sim:/lab3/D2 \
+sim:/lab3/D3
+add wave -position insertpoint  \
+sim:/lab3/S_a \
+sim:/lab3/S_b \
+sim:/lab3/S_c \
+sim:/lab3/S_d \
+sim:/lab3/S_e \
+sim:/lab3/S_f \
+sim:/lab3/S_g
+force -freeze sim:/lab3/D0 0 0
+force -freeze sim:/lab3/D1 0 0
+force -freeze sim:/lab3/D2 0 0
+force -freeze sim:/lab3/D3 0 0
+run
+force -freeze sim:/lab3/D0 1 0
+run
+force -freeze sim:/lab3/D1 1 0
+force -freeze sim:/lab3/D0 0 0
+run
+force -freeze sim:/lab3/D0 1 0
+force -freeze sim:/lab3/D1 St1 0
+force -freeze sim:/lab3/D2 St0 0
+force -freeze sim:/lab3/D3 St0 0
+run
+force -freeze sim:/lab3/D0 0 0
+force -freeze sim:/lab3/D1 0 0
+force -freeze sim:/lab3/D2 1 0
+force -freeze sim:/lab3/D3 St0 0
+run
+force -freeze sim:/lab3/D0 1 0
+force -freeze sim:/lab3/D1 St0 0
+force -freeze sim:/lab3/D2 St1 0
+force -freeze sim:/lab3/D3 St0 0
+run
+force -freeze sim:/lab3/D0 0 0
+force -freeze sim:/lab3/D1 1 0
+force -freeze sim:/lab3/D2 St1 0
+force -freeze sim:/lab3/D3 St0 0
+run
+force -freeze sim:/lab3/D0 1 0
+force -freeze sim:/lab3/D1 St1 0
+force -freeze sim:/lab3/D2 St1 0
+force -freeze sim:/lab3/D3 St0 0
+# Compile of lab3.v was successful.
+run
+force -freeze sim:/lab3/D0 0 0
+force -freeze sim:/lab3/D1 0 0
+force -freeze sim:/lab3/D2 0 0
+force -freeze sim:/lab3/D3 1 0
+run
+force -freeze sim:/lab3/D0 1 0
+force -freeze sim:/lab3/D1 St0 0
+force -freeze sim:/lab3/D2 St0 0
+force -freeze sim:/lab3/D3 St1 0
+run
+force -freeze sim:/lab3/D0 0 0
+force -freeze sim:/lab3/D1 1 0
+force -freeze sim:/lab3/D2 St0 0
+force -freeze sim:/lab3/D3 St1 0
+run
+force -freeze sim:/lab3/D0 1 0
+force -freeze sim:/lab3/D1 St1 0
+force -freeze sim:/lab3/D2 St0 0
+force -freeze sim:/lab3/D3 St1 0
+run
+force -freeze sim:/lab3/D0 0 0
+force -freeze sim:/lab3/D1 0 0
+force -freeze sim:/lab3/D2 1 0
+force -freeze sim:/lab3/D3 St1 0
+run
+force -freeze sim:/lab3/D0 1 0
+force -freeze sim:/lab3/D1 St0 0
+force -freeze sim:/lab3/D2 St1 0
+force -freeze sim:/lab3/D3 St1 0
+run
+force -freeze sim:/lab3/D0 0 0
+force -freeze sim:/lab3/D1 1 0
+force -freeze sim:/lab3/D2 St1 0
+force -freeze sim:/lab3/D3 St1 0
+run
+force -freeze sim:/lab3/D0 1 0
+force -freeze sim:/lab3/D1 St1 0
+force -freeze sim:/lab3/D2 St1 0
+force -freeze sim:/lab3/D3 St1 0
+run
+# End time: 18:01:55 on Apr 28,2023, Elapsed time: 0:12:15
+# Errors: 0, Warnings: 9

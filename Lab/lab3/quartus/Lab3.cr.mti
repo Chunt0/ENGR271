@@ -1,0 +1,57 @@
+C:/Users/IA237-05/Desktop/lab3/S_d.v {1 {vlog -work work -stats=none C:/Users/IA237-05/Desktop/lab3/S_d.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module S_d
+
+Top level modules:
+	S_d
+
+} {} {}} C:/Users/IA237-05/Desktop/lab3/lab3.v {1 {vlog -work work -stats=none C:/Users/IA237-05/Desktop/lab3/lab3.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module lab3
+
+Top level modules:
+	lab3
+
+} {} {}} C:/Users/IA237-05/Desktop/lab3/S_e.v {1 {vlog -work work -stats=none C:/Users/IA237-05/Desktop/lab3/S_e.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module S_e
+
+Top level modules:
+	S_e
+
+} {} {}} C:/Users/IA237-05/Desktop/lab3/S_a.v {1 {vlog -work work -stats=none C:/Users/IA237-05/Desktop/lab3/S_a.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module S_a
+
+Top level modules:
+	S_a
+
+} {} {}} C:/Users/IA237-05/Desktop/lab3/S_f.v {1 {vlog -work work -stats=none C:/Users/IA237-05/Desktop/lab3/S_f.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module S_f
+
+Top level modules:
+	S_f
+
+} {} {}} C:/Users/IA237-05/Desktop/lab3/S_b.v {1 {vlog -work work -stats=none C:/Users/IA237-05/Desktop/lab3/S_b.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module S_b
+
+Top level modules:
+	S_b
+
+} {} {}} C:/Users/IA237-05/Desktop/lab3/S_g.v {1 {vlog -work work -stats=none C:/Users/IA237-05/Desktop/lab3/S_g.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module S_g
+
+Top level modules:
+	S_g
+
+} {} {}} C:/Users/IA237-05/Desktop/lab3/S_c.v {1 {vlog -work work -stats=none C:/Users/IA237-05/Desktop/lab3/S_c.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module S_c
+
+Top level modules:
+	S_c
+
+} {} {}}
