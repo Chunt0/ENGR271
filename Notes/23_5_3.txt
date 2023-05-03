@@ -1,0 +1,7 @@
+State machine Example 1
+- List inputs and outputs
+- Make a state diagram
+- Make a next state table
+- Solve for Boolean expressions
+
+: inputs - Butto
