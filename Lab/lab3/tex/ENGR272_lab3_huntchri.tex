@@ -46,11 +46,17 @@ The objective of this lab is to design and implement a decoder on the FPGA that 
 \hrule
 
 \section*{\textcolor{mycolor}{Design}}
-Our task is to display the hex digit which corresponds to a 4-bit binary number. First we must identify the segments which are on for each state. In figure one we have highlighted the output for each state.
+Our task is to display the hex digit which corresponds to a 4-bit binary number. First we must identify the segments which are on for each state. In figure 1 we have highlighted the output for each state. These will then be mapped to the corresponding segments to be displayed (fig. 2).
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{digits.png}
+  \caption{Digits to Hex}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.2\textwidth]{seg_display.png}
   \caption{Digits to Hex}
 \end{figure}
 
@@ -272,12 +278,8 @@ Considering that the 7-segment display pins are active LOW, we expect a value of
   S_g = \bar{D_3}\bar{D_2}\bar{D_1}+D_3D_2\bar{D_1}\bar{D_0}+\bar{D_3}D_2D_1D_0
 \end{equation*}
 
-
-\vspace{5mm}
-\hrule
-
-\subsection*{\textcolor{mycolor}{Design Entry}}
-Once the boolean logic equations are derived, we utilize Quartus Prime to construct the schematics for each individual logic design (refer to figures 2 through 8). These schematics are then exported as symbol files and serve as logic blocks for the complete binary-to-hex digital display design (refer to figure 9). Subsequently, we proceed to FPGA pin placement, where the binary inputs are mapped to SW0 to SW2, and the display segments are mapped to their corresponding segments a through g (as illustrated in Table 9 and Table 10).
+\section*{\textcolor{mycolor}{Design Entry}}
+Once the boolean logic equations are derived, we utilize Quartus Prime to construct the schematics for each individual logic design (refer to figures 3 through 9). These schematics are then exported as symbol files and serve as logic blocks for the complete binary-to-hex digital display design (refer to figure 10). Subsequently, we proceed to FPGA pin placement, where the binary inputs are mapped to SW0 to SW3, and the display segments are mapped to their corresponding segments a through g (as illustrated in Table 9 and Table 10).
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{S_a_schem.png}
@@ -322,7 +324,7 @@ Once the boolean logic equations are derived, we utilize Quartus Prime to constr
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=.8\textwidth]{full_schem.png}
+  \includegraphics[width=.55\textwidth]{full_schem.png}
   \caption{Full Binary To Hex Display Digital Logic Schematic}
 \end{figure}
 
@@ -364,18 +366,24 @@ Sg & PIN\_C17 \\
 \end{table}
 \vspace{5mm}
 \hrule
-\subsection*{\textcolor{mycolor}{Design Simulation}}
-Simulation description, results table
+\section*{\textcolor{mycolor}{Design Simulation}}
+These schematics were then exported as Verilog files (see Appendix). Before exporting the code to the DE10-Lite, the design was tested using ModelSim (fig. 11). The simulated output matched the expected trut table, Table 1.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{seg_sim.png}
+  \caption{Full Binary To Hex Display Digital Logic Schematic}
+\end{figure}
 \vspace{5mm}
 \hrule
 
 \section*{\textcolor{mycolor}{Design Implementation}}
-Implementation description, results table, picture of implementation
+Upon completing the design simulation without any errors the HDL files were implemented into the DE10-Lite.
 \vspace{5mm}
 \hrule
 
 \section*{\textcolor{mycolor}{Observations}}
-Observations of the lab
+During the lab execution, an error occurred due to an incorrect placement of a value in my original Karnaugh Map for $S_e$. Consequently, there was a flaw in my boolean logic, resulting in the incorrect display of digits 2 and 3. Upon identifying this issue, we isolated the affected segment and digits and traced the error back to the Karnaugh Map. Once the error was rectified, the output for each hex digit from 0 to F became correct.
 \vspace{5mm}
 \hrule
 
@@ -390,6 +398,7 @@ Overall, the lab helped deepen our understanding of combinational logic and its 
 
 \section*{\textcolor{mycolor}{Study Questions}}
 \subsubsection*{\textcolor{mycolor}{1. When is a simulation necessary? Was it useful for this section?}}
+Simulation was necessary for this lab. The error found in my Karnaugh Map for segment $S_e$ would possibly not been caught if the simulation was not done. In the case for this lab the desired output was directly linked to the input with no unseen events occuring, this would have made the error easily caught if implemented into the hardware. In a scenario where there was more complex logic occur on the hardware but was not so easily witnessed, the error could have slipped undetected. Although simulation is an extra step that may seem extrenuous, it is still a crucial component to the design process of FPGA devices.
 
 
 \end{document}
