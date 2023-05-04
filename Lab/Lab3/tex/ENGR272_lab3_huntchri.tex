@@ -399,5 +399,592 @@ Overall, the lab helped deepen our understanding of combinational logic and its 
 \subsubsection*{\textcolor{mycolor}{1. When is a simulation necessary? Was it useful for this section?}}
 Simulation was necessary for this lab. The error found in my Karnaugh Map for segment $S_e$ would possibly not been caught if the simulation was not done. In the case for this lab the desired output was directly linked to the input with no unseen events occuring, this would have made the error easily caught if implemented into the hardware. In a scenario where there was more complex logic occur on the hardware but was not so easily witnessed, the error could have slipped undetected. Although simulation is an extra step that may seem extrenuous, it is still a crucial component to the design process of FPGA devices.
 
+\newpage
+\section*{Appendix}
+\begin{lstlisting}
+  // Copyright (C) 2020  Intel Corporation. All rights reserved.
+  // Your use of Intel Corporation's design tools, logic functions 
+  // and other software and tools, and any partner logic 
+  // functions, and any output files from any of the foregoing 
+  // (including device programming or simulation files), and any 
+  // associated documentation or information are expressly subject 
+  // to the terms and conditions of the Intel Program License 
+  // Subscription Agreement, the Intel Quartus Prime License Agreement,
+  // the Intel FPGA IP License Agreement, or other applicable license
+  // agreement, including, without limitation, that your use is for
+  // the sole purpose of programming logic devices manufactured by
+  // Intel and sold by Intel or its authorized distributors.  Please
+  // refer to the applicable agreement for further details, at
+  // https://fpgasoftware.intel.com/eula.
+  
+  // PROGRAM		"Quartus Prime"
+  // VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+  // CREATED		"Fri Apr 28 17:47:04 2023"
+  // By Christopher Hunt
+  // lab3.v
+  module lab3(
+    D0,
+    D1,
+    D2,
+    D3,
+    S_a,
+    S_b,
+    S_c,
+    S_d,
+    S_e,
+    S_f,
+    S_g
+  );
+  
+  
+  input wire	D0;
+  input wire	D1;
+  input wire	D2;
+  input wire	D3;
+  output wire	S_a;
+  output wire	S_b;
+  output wire	S_c;
+  output wire	S_d;
+  output wire	S_e;
+  output wire	S_f;
+  output wire	S_g;
+  
+  
+  
+  
+  
+  
+  S_a	b2v_inst(
+    .D0(D0),
+    .D1(D1),
+    .D2(D2),
+    .D3(D3),
+    .S_a(S_a));
+  
+  
+  S_c	b2v_inst10(
+    .D0(D0),
+    .D1(D1),
+    .D2(D2),
+    .D3(D3),
+    .S_c(S_c));
+  
+  
+  S_d	b2v_inst11(
+    .D0(D0),
+    .D1(D1),
+    .D2(D2),
+    .D3(D3),
+    .S_d(S_d));
+  
+  
+  S_e	b2v_inst12(
+    .D0(D0),
+    .D1(D1),
+    .D2(D2),
+    .D3(D3),
+    .S_e(S_e));
+  
+  
+  S_f	b2v_inst13(
+    .D0(D0),
+    .D1(D1),
+    .D2(D2),
+    .D3(D3),
+    .S_f(S_f));
+  
+  
+  S_g	b2v_inst14(
+    .D0(D0),
+    .D1(D1),
+    .D2(D2),
+    .D3(D3),
+    .S_g(S_g));
+  
+  
+  S_b	b2v_inst9(
+    .D0(D0),
+    .D1(D1),
+    .D2(D2),
+    .D3(D3),
+    .S_b(S_b));
+  
+  
+  endmodule
+   
+\end{lstlisting}
+
+\begin{lstlisting}
+// Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// PROGRAM		"Quartus Prime"
+// VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+// CREATED		"Fri Apr 28 17:48:03 2023"
+// By Christopher Hunt 
+// S_a.v
+
+module S_a(
+	D0,
+	D1,
+	D2,
+	D3,
+	S_a
+);
+
+
+input wire	D0;
+input wire	D1;
+input wire	D2;
+input wire	D3;
+output wire	S_a;
+
+wire	SYNTHESIZED_WIRE_12;
+wire	SYNTHESIZED_WIRE_13;
+wire	SYNTHESIZED_WIRE_14;
+wire	SYNTHESIZED_WIRE_3;
+wire	SYNTHESIZED_WIRE_8;
+wire	SYNTHESIZED_WIRE_9;
+wire	SYNTHESIZED_WIRE_10;
+wire	SYNTHESIZED_WIRE_11;
+
+
+
+
+assign	SYNTHESIZED_WIRE_8 = D0 & SYNTHESIZED_WIRE_12 & SYNTHESIZED_WIRE_13 & SYNTHESIZED_WIRE_14;
+
+assign	SYNTHESIZED_WIRE_11 = SYNTHESIZED_WIRE_3 & SYNTHESIZED_WIRE_12 & D2 & SYNTHESIZED_WIRE_14;
+
+assign	SYNTHESIZED_WIRE_12 =  ~D1;
+
+assign	SYNTHESIZED_WIRE_13 =  ~D2;
+
+assign	SYNTHESIZED_WIRE_14 =  ~D3;
+
+assign	SYNTHESIZED_WIRE_3 =  ~D0;
+
+assign	SYNTHESIZED_WIRE_9 = D0 & SYNTHESIZED_WIRE_12 & D2 & D3;
+
+assign	SYNTHESIZED_WIRE_10 = D0 & D1 & SYNTHESIZED_WIRE_13 & D3;
+
+assign	S_a = SYNTHESIZED_WIRE_8 | SYNTHESIZED_WIRE_9 | SYNTHESIZED_WIRE_10 | SYNTHESIZED_WIRE_11;
+
+
+endmodule
+\end{lstlisting}
+
+\begin{lstlisting}
+  // Copyright (C) 2020  Intel Corporation. All rights reserved.
+  // Your use of Intel Corporation's design tools, logic functions 
+  // and other software and tools, and any partner logic 
+  // functions, and any output files from any of the foregoing 
+  // (including device programming or simulation files), and any 
+  // associated documentation or information are expressly subject 
+  // to the terms and conditions of the Intel Program License 
+  // Subscription Agreement, the Intel Quartus Prime License Agreement,
+  // the Intel FPGA IP License Agreement, or other applicable license
+  // agreement, including, without limitation, that your use is for
+  // the sole purpose of programming logic devices manufactured by
+  // Intel and sold by Intel or its authorized distributors.  Please
+  // refer to the applicable agreement for further details, at
+  // https://fpgasoftware.intel.com/eula.
+  
+  // PROGRAM		"Quartus Prime"
+  // VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+  // CREATED		"Fri Apr 28 17:47:59 2023"
+  
+  module S_b(
+    D0,
+    D1,
+    D2,
+    D3,
+    S_b
+  );
+  
+  
+  input wire	D0;
+  input wire	D1;
+  input wire	D2;
+  input wire	D3;
+  output wire	S_b;
+  
+  wire	SYNTHESIZED_WIRE_8;
+  wire	SYNTHESIZED_WIRE_2;
+  wire	SYNTHESIZED_WIRE_3;
+  wire	SYNTHESIZED_WIRE_4;
+  wire	SYNTHESIZED_WIRE_5;
+  wire	SYNTHESIZED_WIRE_6;
+  wire	SYNTHESIZED_WIRE_7;
+  
+  
+  
+  
+  assign	SYNTHESIZED_WIRE_4 = SYNTHESIZED_WIRE_8 & D1 & D2;
+  
+  assign	SYNTHESIZED_WIRE_7 = D0 & D1 & D3;
+  
+  assign	SYNTHESIZED_WIRE_5 = SYNTHESIZED_WIRE_8 & D2 & D3;
+  
+  assign	SYNTHESIZED_WIRE_6 = D0 & SYNTHESIZED_WIRE_2 & D2 & SYNTHESIZED_WIRE_3;
+  
+  assign	S_b = SYNTHESIZED_WIRE_4 | SYNTHESIZED_WIRE_5 | SYNTHESIZED_WIRE_6 | SYNTHESIZED_WIRE_7;
+  
+  assign	SYNTHESIZED_WIRE_8 =  ~D0;
+  
+  assign	SYNTHESIZED_WIRE_2 =  ~D1;
+  
+  assign	SYNTHESIZED_WIRE_3 =  ~D3;
+  
+  
+  endmodule
+   
+\end{lstlisting}
+
+\begin{lstlisting}
+  // Copyright (C) 2020  Intel Corporation. All rights reserved.
+  // Your use of Intel Corporation's design tools, logic functions 
+  // and other software and tools, and any partner logic 
+  // functions, and any output files from any of the foregoing 
+  // (including device programming or simulation files), and any 
+  // associated documentation or information are expressly subject 
+  // to the terms and conditions of the Intel Program License 
+  // Subscription Agreement, the Intel Quartus Prime License Agreement,
+  // the Intel FPGA IP License Agreement, or other applicable license
+  // agreement, including, without limitation, that your use is for
+  // the sole purpose of programming logic devices manufactured by
+  // Intel and sold by Intel or its authorized distributors.  Please
+  // refer to the applicable agreement for further details, at
+  // https://fpgasoftware.intel.com/eula.
+  
+  // PROGRAM		"Quartus Prime"
+  // VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+  // CREATED		"Fri Apr 28 17:47:54 2023"
+  
+  module S_c(
+    D0,
+    D1,
+    D2,
+    D3,
+    S_c
+  );
+  
+  
+  input wire	D0;
+  input wire	D1;
+  input wire	D2;
+  input wire	D3;
+  output wire	S_c;
+  
+  wire	SYNTHESIZED_WIRE_7;
+  wire	SYNTHESIZED_WIRE_2;
+  wire	SYNTHESIZED_WIRE_3;
+  wire	SYNTHESIZED_WIRE_4;
+  wire	SYNTHESIZED_WIRE_5;
+  wire	SYNTHESIZED_WIRE_6;
+  
+  
+  
+  
+  assign	SYNTHESIZED_WIRE_6 = SYNTHESIZED_WIRE_7 & D2 & D3;
+  
+  assign	SYNTHESIZED_WIRE_4 = D1 & D2 & D3;
+  
+  assign	SYNTHESIZED_WIRE_5 = SYNTHESIZED_WIRE_7 & D1 & SYNTHESIZED_WIRE_2 & SYNTHESIZED_WIRE_3;
+  
+  assign	S_c = SYNTHESIZED_WIRE_4 | SYNTHESIZED_WIRE_5 | SYNTHESIZED_WIRE_6;
+  
+  assign	SYNTHESIZED_WIRE_7 =  ~D0;
+  
+  assign	SYNTHESIZED_WIRE_2 =  ~D2;
+  
+  assign	SYNTHESIZED_WIRE_3 =  ~D3;
+  
+  
+  endmodule
+    
+\end{lstlisting}
+
+\begin{lstlisting}
+  // Copyright (C) 2020  Intel Corporation. All rights reserved.
+  // Your use of Intel Corporation's design tools, logic functions 
+  // and other software and tools, and any partner logic 
+  // functions, and any output files from any of the foregoing 
+  // (including device programming or simulation files), and any 
+  // associated documentation or information are expressly subject 
+  // to the terms and conditions of the Intel Program License 
+  // Subscription Agreement, the Intel Quartus Prime License Agreement,
+  // the Intel FPGA IP License Agreement, or other applicable license
+  // agreement, including, without limitation, that your use is for
+  // the sole purpose of programming logic devices manufactured by
+  // Intel and sold by Intel or its authorized distributors.  Please
+  // refer to the applicable agreement for further details, at
+  // https://fpgasoftware.intel.com/eula.
+  
+  // PROGRAM		"Quartus Prime"
+  // VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+  // CREATED		"Fri Apr 28 17:47:48 2023"
+  
+  module S_d(
+    D0,
+    D1,
+    D2,
+    D3,
+    S_d
+  );
+  
+  
+  input wire	D0;
+  input wire	D1;
+  input wire	D2;
+  input wire	D3;
+  output wire	S_d;
+  
+  wire	SYNTHESIZED_WIRE_12;
+  wire	SYNTHESIZED_WIRE_13;
+  wire	SYNTHESIZED_WIRE_14;
+  wire	SYNTHESIZED_WIRE_15;
+  wire	SYNTHESIZED_WIRE_8;
+  wire	SYNTHESIZED_WIRE_9;
+  wire	SYNTHESIZED_WIRE_10;
+  wire	SYNTHESIZED_WIRE_11;
+  
+  
+  
+  
+  assign	SYNTHESIZED_WIRE_8 = D0 & D1 & D2;
+  
+  assign	SYNTHESIZED_WIRE_11 = D0 & SYNTHESIZED_WIRE_12 & SYNTHESIZED_WIRE_13 & SYNTHESIZED_WIRE_14;
+  
+  assign	SYNTHESIZED_WIRE_9 = SYNTHESIZED_WIRE_15 & SYNTHESIZED_WIRE_12 & D2 & SYNTHESIZED_WIRE_14;
+  
+  assign	SYNTHESIZED_WIRE_10 = SYNTHESIZED_WIRE_15 & D1 & SYNTHESIZED_WIRE_13 & D3;
+  
+  assign	SYNTHESIZED_WIRE_15 =  ~D0;
+  
+  assign	SYNTHESIZED_WIRE_12 =  ~D1;
+  
+  assign	SYNTHESIZED_WIRE_13 =  ~D2;
+  
+  assign	SYNTHESIZED_WIRE_14 =  ~D3;
+  
+  assign	S_d = SYNTHESIZED_WIRE_8 | SYNTHESIZED_WIRE_9 | SYNTHESIZED_WIRE_10 | SYNTHESIZED_WIRE_11;
+  
+  
+  endmodule
+  
+    
+\end{lstlisting}
+
+\begin{lstlisting}
+  // Copyright (C) 2020  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// PROGRAM		"Quartus Prime"
+// VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+// CREATED		"Fri Apr 28 17:47:43 2023"
+
+module S_e(
+	D0,
+	D1,
+	D2,
+	D3,
+	S_e
+);
+
+
+input wire	D0;
+input wire	D1;
+input wire	D2;
+input wire	D3;
+output wire	S_e;
+
+wire	SYNTHESIZED_WIRE_11;
+wire	SYNTHESIZED_WIRE_12;
+wire	SYNTHESIZED_WIRE_13;
+wire	SYNTHESIZED_WIRE_5;
+wire	SYNTHESIZED_WIRE_6;
+wire	SYNTHESIZED_WIRE_7;
+wire	SYNTHESIZED_WIRE_8;
+
+
+
+
+assign	SYNTHESIZED_WIRE_5 = D0 & SYNTHESIZED_WIRE_11 & SYNTHESIZED_WIRE_12;
+
+assign	SYNTHESIZED_WIRE_8 = SYNTHESIZED_WIRE_11 & D2 & SYNTHESIZED_WIRE_13;
+
+assign	SYNTHESIZED_WIRE_6 = D0 & D2 & SYNTHESIZED_WIRE_13;
+
+assign	S_e = SYNTHESIZED_WIRE_5 | SYNTHESIZED_WIRE_6 | SYNTHESIZED_WIRE_7 | SYNTHESIZED_WIRE_8;
+
+assign	SYNTHESIZED_WIRE_11 =  ~D1;
+
+assign	SYNTHESIZED_WIRE_12 =  ~D2;
+
+assign	SYNTHESIZED_WIRE_13 =  ~D3;
+
+assign	SYNTHESIZED_WIRE_7 = D0 & SYNTHESIZED_WIRE_12 & SYNTHESIZED_WIRE_13;
+
+
+endmodule
+\end{lstlisting}
+
+\begin{lstlisting}
+  // Copyright (C) 2020  Intel Corporation. All rights reserved.
+  // Your use of Intel Corporation's design tools, logic functions 
+  // and other software and tools, and any partner logic 
+  // functions, and any output files from any of the foregoing 
+  // (including device programming or simulation files), and any 
+  // associated documentation or information are expressly subject 
+  // to the terms and conditions of the Intel Program License 
+  // Subscription Agreement, the Intel Quartus Prime License Agreement,
+  // the Intel FPGA IP License Agreement, or other applicable license
+  // agreement, including, without limitation, that your use is for
+  // the sole purpose of programming logic devices manufactured by
+  // Intel and sold by Intel or its authorized distributors.  Please
+  // refer to the applicable agreement for further details, at
+  // https://fpgasoftware.intel.com/eula.
+  
+  // PROGRAM		"Quartus Prime"
+  // VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+  // CREATED		"Fri Apr 28 17:47:37 2023"
+  
+  module S_f(
+    D0,
+    D1,
+    D2,
+    D3,
+    S_f
+  );
+  
+  
+  input wire	D0;
+  input wire	D1;
+  input wire	D2;
+  input wire	D3;
+  output wire	S_f;
+  
+  wire	SYNTHESIZED_WIRE_10;
+  wire	SYNTHESIZED_WIRE_11;
+  wire	SYNTHESIZED_WIRE_5;
+  wire	SYNTHESIZED_WIRE_6;
+  wire	SYNTHESIZED_WIRE_7;
+  wire	SYNTHESIZED_WIRE_8;
+  wire	SYNTHESIZED_WIRE_9;
+  
+  
+  
+  
+  assign	SYNTHESIZED_WIRE_6 = D0 & SYNTHESIZED_WIRE_10 & SYNTHESIZED_WIRE_11;
+  
+  assign	SYNTHESIZED_WIRE_9 = D1 & SYNTHESIZED_WIRE_10 & SYNTHESIZED_WIRE_11;
+  
+  assign	SYNTHESIZED_WIRE_7 = D0 & D1 & SYNTHESIZED_WIRE_11;
+  
+  assign	SYNTHESIZED_WIRE_8 = D0 & SYNTHESIZED_WIRE_5 & D2 & D3;
+  
+  assign	S_f = SYNTHESIZED_WIRE_6 | SYNTHESIZED_WIRE_7 | SYNTHESIZED_WIRE_8 | SYNTHESIZED_WIRE_9;
+  
+  assign	SYNTHESIZED_WIRE_5 =  ~D1;
+  
+  assign	SYNTHESIZED_WIRE_10 =  ~D2;
+  
+  assign	SYNTHESIZED_WIRE_11 =  ~D3;
+  
+  
+  endmodule
+  
+\end{lstlisting}
+
+\begin{lstlisting}
+  // Copyright (C) 2020  Intel Corporation. All rights reserved.
+  // Your use of Intel Corporation's design tools, logic functions 
+  // and other software and tools, and any partner logic 
+  // functions, and any output files from any of the foregoing 
+  // (including device programming or simulation files), and any 
+  // associated documentation or information are expressly subject 
+  // to the terms and conditions of the Intel Program License 
+  // Subscription Agreement, the Intel Quartus Prime License Agreement,
+  // the Intel FPGA IP License Agreement, or other applicable license
+  // agreement, including, without limitation, that your use is for
+  // the sole purpose of programming logic devices manufactured by
+  // Intel and sold by Intel or its authorized distributors.  Please
+  // refer to the applicable agreement for further details, at
+  // https://fpgasoftware.intel.com/eula.
+  
+  // PROGRAM		"Quartus Prime"
+  // VERSION		"Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
+  // CREATED		"Fri Apr 28 17:47:15 2023"
+  
+  module S_g(
+    D0,
+    D1,
+    D2,
+    D3,
+    S_g
+  );
+  
+  
+  input wire	D0;
+  input wire	D1;
+  input wire	D2;
+  input wire	D3;
+  output wire	S_g;
+  
+  wire	SYNTHESIZED_WIRE_9;
+  wire	SYNTHESIZED_WIRE_1;
+  wire	SYNTHESIZED_WIRE_10;
+  wire	SYNTHESIZED_WIRE_3;
+  wire	SYNTHESIZED_WIRE_6;
+  wire	SYNTHESIZED_WIRE_7;
+  wire	SYNTHESIZED_WIRE_8;
+  
+  
+  
+  
+  assign	SYNTHESIZED_WIRE_8 = SYNTHESIZED_WIRE_9 & SYNTHESIZED_WIRE_1 & SYNTHESIZED_WIRE_10;
+  
+  assign	SYNTHESIZED_WIRE_6 = SYNTHESIZED_WIRE_3 & SYNTHESIZED_WIRE_9 & D2 & D3;
+  
+  assign	SYNTHESIZED_WIRE_7 = D0 & D1 & D2 & SYNTHESIZED_WIRE_10;
+  
+  assign	S_g = SYNTHESIZED_WIRE_6 | SYNTHESIZED_WIRE_7 | SYNTHESIZED_WIRE_8;
+  
+  assign	SYNTHESIZED_WIRE_3 =  ~D0;
+  
+  assign	SYNTHESIZED_WIRE_9 =  ~D1;
+  
+  assign	SYNTHESIZED_WIRE_1 =  ~D2;
+  
+  assign	SYNTHESIZED_WIRE_10 =  ~D3;
+  
+  
+  endmodule
+   
+\end{lstlisting}
 
 \end{document}
