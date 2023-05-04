@@ -10,35 +10,36 @@
   breaklines=true,
   frame=single,
   language=Verilog,
-  numbers=left,
   numberstyle=\tiny,
   showstringspaces=false
 }
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{\baselineskip}
 \definecolor{mycolor}{rgb}{0.1, 0.1, 0.5}
-\title{\textbf{{\huge Lab Title}}}
-\author{Author Name}
-\date{\today}
+\title{\textbf{{\huge Counters}}}
+\author{Christopher Hunt}
 \usepackage{graphicx} 
 \usepackage{fancyhdr}
 
 \begin{document}
 \pagestyle{fancy}
 \fancyhf{}
-\rfoot{Footer Text}
-\lfoot{Author Name}
-\lhead{Lab Title}
+\rfoot{ENGR 272}
+\lfoot{Christopher Hunt}
+\lhead{Counters}
 \rhead{\thepage}
 \maketitle
 \section*{\textcolor{mycolor}{Objectives}}
-Objectives of the lab
+The objective of this lab is to design and implement a decoder on the FPGA that can convert a 4-bit binary number inputted using the switches into a single digit of hexadecimal on the seven-segment display. The lab will involve creating a block diagram for the decoder design, determining the mapping for displaying each number 0-F on the seven-segment display, generating the functional truth table for the decoder, minimizing the logic for each segment of the decoder using Karnaugh Maps, simulating the design, and finally programming and testing the hardware implementation on the DE10-Lite. By completing this lab, participants will gain an understanding of the process involved in designing and implementing a decoder, become familiar with using Karnaugh Maps for logic minimization, and acquire hands-on experience in FPGA programming and testing. The lab aims to provide a comprehensive learning experience, covering the theoretical concepts and practical aspects of decoder design and FPGA implementation.
 \vspace{5mm}
 \hrule
 
 \section*{\textcolor{mycolor}{Equipment}}
 \begin{itemize}
-  \item List of equipment
+  \item Quartus Prime Lite Edition V. 18.0/18.1
+  \item DE10-Lite kit with MAX10 10M50DAF484C7G FPGA
+  \item USB to USB-B cable
+  \item The ECE 271 textbook, Digital Design and Computer Architecture by Drs. David and Sarah Harris
 \end{itemize}
 \vspace{5mm}
 \hrule
