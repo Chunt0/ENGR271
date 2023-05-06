@@ -1,0 +1,189 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sa0",
+					"strict" : false
+				},
+				{
+					"name" : "sb0",
+					"strict" : false
+				},
+				{
+					"name" : "sc0",
+					"strict" : false
+				},
+				{
+					"name" : "sd0",
+					"strict" : false
+				},
+				{
+					"name" : "se0",
+					"strict" : false
+				},
+				{
+					"name" : "sf0",
+					"strict" : false
+				},
+				{
+					"name" : "sg0",
+					"strict" : false
+				},
+				{
+					"name" : "sa1",
+					"strict" : false
+				},
+				{
+					"name" : "sb1",
+					"strict" : false
+				},
+				{
+					"name" : "sc1",
+					"strict" : false
+				},
+				{
+					"name" : "sd1",
+					"strict" : false
+				},
+				{
+					"name" : "se1",
+					"strict" : false
+				},
+				{
+					"name" : "sf1",
+					"strict" : false
+				},
+				{
+					"name" : "sg1",
+					"strict" : false
+				},
+				{
+					"name" : "sa2",
+					"strict" : false
+				},
+				{
+					"name" : "sb2",
+					"strict" : false
+				},
+				{
+					"name" : "sc2",
+					"strict" : false
+				},
+				{
+					"name" : "sd2",
+					"strict" : false
+				},
+				{
+					"name" : "se2",
+					"strict" : false
+				},
+				{
+					"name" : "sf2",
+					"strict" : false
+				},
+				{
+					"name" : "sg2",
+					"strict" : false
+				},
+				{
+					"name" : "sa3",
+					"strict" : false
+				},
+				{
+					"name" : "sb3",
+					"strict" : false
+				},
+				{
+					"name" : "sc3",
+					"strict" : false
+				},
+				{
+					"name" : "sd3",
+					"strict" : false
+				},
+				{
+					"name" : "se3",
+					"strict" : false
+				},
+				{
+					"name" : "sf3",
+					"strict" : false
+				},
+				{
+					"name" : "sg3",
+					"strict" : false
+				},
+				{
+					"name" : "sa4",
+					"strict" : false
+				},
+				{
+					"name" : "sb4",
+					"strict" : false
+				},
+				{
+					"name" : "sc4",
+					"strict" : false
+				},
+				{
+					"name" : "sd4",
+					"strict" : false
+				},
+				{
+					"name" : "se4",
+					"strict" : false
+				},
+				{
+					"name" : "sf4",
+					"strict" : false
+				},
+				{
+					"name" : "sg4",
+					"strict" : false
+				},
+				{
+					"name" : "sa5",
+					"strict" : false
+				},
+				{
+					"name" : "sb5",
+					"strict" : false
+				},
+				{
+					"name" : "sc5",
+					"strict" : false
+				},
+				{
+					"name" : "sd5",
+					"strict" : false
+				},
+				{
+					"name" : "se5",
+					"strict" : false
+				},
+				{
+					"name" : "sf5",
+					"strict" : false
+				},
+				{
+					"name" : "sg5",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "enable",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
