@@ -18,6 +18,7 @@
 \definecolor{mycolor}{rgb}{0.1, 0.1, 0.5}
 \title{\textbf{{\huge Counters}}}
 \author{Christopher Hunt}
+\date{}
 \usepackage{graphicx} 
 \usepackage{fancyhdr}
 
@@ -30,7 +31,8 @@
 \rhead{\thepage}
 \maketitle
 \section*{\textcolor{mycolor}{Objectives}}
-The objective of this lab is to design and implement a decoder on the FPGA that can convert a 4-bit binary number inputted using the switches into a single digit of hexadecimal on the seven-segment display. The lab will involve creating a block diagram for the decoder design, determining the mapping for displaying each number 0-F on the seven-segment display, generating the functional truth table for the decoder, minimizing the logic for each segment of the decoder using Karnaugh Maps, simulating the design, and finally programming and testing the hardware implementation on the DE10-Lite. By completing this lab, participants will gain an understanding of the process involved in designing and implementing a decoder, become familiar with using Karnaugh Maps for logic minimization, and acquire hands-on experience in FPGA programming and testing. The lab aims to provide a comprehensive learning experience, covering the theoretical concepts and practical aspects of decoder design and FPGA implementation.
+The objective of this lab is to design and implement a counter system that utilizes T flip-flops to effectively slow down a 50 MHz clock frequency to achieve a frequency as close to 1 Hz as possible. The DE10-Lite will be utilized to drive all six digits of its seven-segment displays by outputting a counter to each digit, synchronized with the clock signal. This lab aims to enhance our knowledge and skills in digital logic design by introducing the concept of state memory and utilizing the FPGA's clock as a means of logic control. By successfully completing this lab, we will deepen our understanding of digital circuits and gain practical experience in implementing clock-controlled systems.
+
 \vspace{5mm}
 \hrule
 
@@ -45,7 +47,31 @@ The objective of this lab is to design and implement a decoder on the FPGA that 
 \hrule
 
 \section*{\textcolor{mycolor}{Design}}
-Design description, block diagram, pin placement labels
+In the previous lab we developed a logic design that mapped a 4-bit binary number that was inputed via on board switches to a seven segment display which displayed the binary number in hexidecimal. This will be used as a basic building block for the design of a clock-controlled counter.
+
+T Flip Flops will be used to divide the clock signal. When feeding a clock signal into a TFF the output will effectively output at half the frequency of the input clock. By cascading four of these TFF's we are able to output a four bit counter, theleast significant bit being the output clock of the first TFF and the most significant bit being the output clock of the fourth. These outputs will be mapped to the 6 seven-segment displays available on the board, the fastest digit on the right and the 1 Hz digit on the left.   
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c||c|}
+  \hline
+  \textbf{Clock} & \textbf{Reset} & \textbf{T} & \textbf{Q} \\
+  \hline
+  X & 0 & X & 0 \\
+  \hline
+  1 & 1 & 0 & Q \\
+  \hline
+  1 & 1 & 1 & $\sim Q$ \\
+  \hline
+  1 & 1 & X & Q \\
+  \hline
+  \end{tabular}
+  \caption{T Flip-Flop Truth Table}
+\end{table}
+  
+In order to achieve this we need to pay close attention to the amount of TFF's we use. Each TFF is acts as a division by two to the input clock speed. For this implementation we will be using the DE110-Lite's 50 MHz clock. To find the number of TFF's needed to achieve a frequency of near 1 Hz we count how many times we need to divide 50,000,000 until we are as close to 1 as possible. The closest being 26 total TFF's. This should give us a counter frequency of approximately 0.75 Hz. 
+
+We know that there will be at least 24 flip flops used to output to the 6 seven-segment displays. This means there must be included some extra TFF's at the beginning of the schematic to act as a divider. 
 \vspace{5mm}
 \hrule
 
