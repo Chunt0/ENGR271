@@ -47,9 +47,9 @@ The objective of this lab is to design and implement a counter system that utili
 \hrule
 
 \section*{\textcolor{mycolor}{Design}}
-In the previous lab we developed a logic design that mapped a 4-bit binary number that was inputed via on board switches to a seven segment display which displayed the binary number in hexidecimal. This will be used as a basic building block for the design of a clock-controlled counter.
+In the previous lab we developed a logic design that mapped a 4-bit binary number that was inputed via on board switches to a seven segment display which displayed the binary number in hexidecimal. This will be used as a basic building block for the design of a clock-controlled counter (Appendix 1). 
 
-T Flip Flops will be used to divide the clock signal. When feeding a clock signal into a TFF the output will effectively output at half the frequency of the input clock. By cascading four of these TFF's we are able to output a four bit counter, theleast significant bit being the output clock of the first TFF and the most significant bit being the output clock of the fourth. These outputs will be mapped to the 6 seven-segment displays available on the board, the fastest digit on the right and the 1 Hz digit on the left.   
+T Flip Flops will be used to divide the clock signal. When feeding a clock signal into a TFF the output will effectively output at half the frequency of the input clock. By cascading four of these TFF's we are able to output a four bit counter, the least significant bit being the output clock of the first TFF and the most significant bit being the output clock of the fourth. These outputs will be mapped to the 6 seven-segment displays available on the board, the fastest digit on the right and the 1 Hz digit on the left.
 
 \begin{table}[H]
   \centering
@@ -69,44 +69,253 @@ T Flip Flops will be used to divide the clock signal. When feeding a clock signa
   \caption{T Flip-Flop Truth Table}
 \end{table}
   
-In order to achieve this we need to pay close attention to the amount of TFF's we use. Each TFF is acts as a division by two to the input clock speed. For this implementation we will be using the DE110-Lite's 50 MHz clock. To find the number of TFF's needed to achieve a frequency of near 1 Hz we count how many times we need to divide 50,000,000 until we are as close to 1 as possible. The closest being 26 total TFF's. This should give us a counter frequency of approximately 0.75 Hz. 
+In order to achieve this we need to pay close attention to the amount of TFF's we use. Each TFF is acts as a division by two to the input clock speed. For this implementation we will be using the DE110-Lite's 50 MHz clock. To find the number of TFF's needed to achieve a frequency of near 1 Hz we count how many times we need to divide 50,000,000 until we are as close to 1 as possible. The closest being 26 total TFF's. This should give us a counter frequency of approximately 0.75 Hz(fig. 1). 
 
-We know that there will be at least 24 flip flops used to output to the 6 seven-segment displays. This means there must be included some extra TFF's at the beginning of the schematic to act as a divider. 
+\begin{figure}[H]
+  \centering
+  \includegraphics*[width=1\linewidth]{counter.png}
+  \caption{T Flip Flop Counter Design}  
+\end{figure}
+
+We know that there will be at least 24 flip flops used to output to the 6 seven-segment displays. This means there must be included some extra TFF's at the beginning of the schematic to act as a divider (fig. 2). When implementing this divider it was built with two TFF's but upon testing the speed of the final digit was faster than 1 Hz. Three more TFF's were added to slow down the clock to better match the desired frequency.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics*[width=1\linewidth]{divider.png}
+  \caption{T Flip Flop Clock Divider Design}  
+\end{figure}
+
+These two schematics will act as the basic building blocks for the finished schematic. Once these have been exported as Symbol Files the 6 counters will be cascaded in front of the divider with the pins mapped to the seven-segment displays (fig. 3). See tables below for pin mapping.
+
+\begin{table}[H]
+  \centering
+  \begin{minipage}[t]{0.3\textwidth}
+    \centering
+    \begin{tabular}{ll}
+    \textbf{Signal} & \textbf{PIN} \\
+    \hline
+    clk   & PIN\_P11 \\
+    enable & PIN\_C10 \\
+    reset & PIN\_C11 \\
+    \end{tabular}%
+    \label{tab:pin_assignments1}%
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.3\textwidth}
+    \centering
+    \begin{tabular}{ll}
+    \textbf{Signal} & \textbf{PIN} \\
+    \hline
+    sa0   & PIN\_C14 \\
+    sa1   & PIN\_C18 \\
+    sa2   & PIN\_B20 \\
+    sa3   & PIN\_F21 \\
+    sa4   & PIN\_F18 \\
+    sa5   & PIN\_J20 \\
+    \end{tabular}%
+    \label{tab:pin_assignments2}%
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.3\textwidth}
+    \centering
+    \begin{tabular}{ll}
+    \textbf{Signal} & \textbf{PIN} \\
+    \hline
+    sb0   & PIN\_E15 \\
+    sb1   & PIN\_D18 \\
+    sb2   & PIN\_A20 \\
+    sb3   & PIN\_E22 \\
+    sb4   & PIN\_E20 \\
+    sb5   & PIN\_K20 \\
+    \end{tabular}%
+    \label{tab:pin_assignments3}%
+  \end{minipage}
+\end{table}%
+
+\begin{table}[htbp]
+  \centering
+
+  \begin{minipage}[t]{0.3\textwidth}
+    \centering
+    \begin{tabular}{ll}
+    \textbf{Signal} & \textbf{PIN} \\
+    \hline
+    sc0   & PIN\_C15 \\
+    sc1   & PIN\_E18 \\
+    sc2   & PIN\_B19 \\
+    sc3   & PIN\_E21 \\
+    sc4   & PIN\_E19 \\
+    sc5   & PIN\_L18 \\
+    \end{tabular}%
+    \label{tab:pin_assignments4}%
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.3\textwidth}
+    \centering
+    \begin{tabular}{ll}
+    \textbf{Signal} & \textbf{PIN} \\
+    \hline
+    sd0   & PIN\_C16 \\
+    sd1   & PIN\_B16 \\
+    sd2   & PIN\_A21 \\
+    sd3   & PIN\_C19 \\
+    sd4   & PIN\_J18 \\
+    sd5   & PIN\_N18 \\
+    \end{tabular}%
+    \label{tab:pin_assignments5}%
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.3\textwidth}
+    \centering
+    \begin{tabular}{ll}
+    \textbf{Signal} & \textbf{PIN} \\
+    \hline
+    se0   & PIN\_E16 \\
+    se1   & PIN\_A17 \\
+    se2   & PIN\_B21 \\
+    se3   & PIN\_C20 \\
+    se4   & PIN\_H19 \\
+    se5   & PIN\_M20 \\
+    \end{tabular}%
+    \label{tab:pin_assignments6}%
+  \end{minipage}
+  
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \begin{minipage}[t]{0.5\textwidth}
+    \centering
+    \begin{tabular}{ll}
+    \textbf{Signal} & \textbf{PIN} \\
+    \hline
+    sf0   & PIN\_D17 \\
+    sf1   & PIN\_A18 \\
+    sf2   & PIN\_C22 \\
+    sf3   & PIN\_D19 \\
+    sf4   & PIN\_F19 \\
+    sf5   & PIN\_N19 \\
+    \end{tabular}%
+    \label{tab:pin_assignments7}%
+  \end{minipage}\hfill
+  \begin{minipage}[t]{0.5\textwidth}
+    \centering
+    \begin{tabular}{ll}
+    \textbf{Signal} & \textbf{PIN} \\
+    \hline
+    sg0   & PIN\_C17 \\
+    sg1   & PIN\_B17 \\
+    sg2   & PIN\_B22 \\
+    sg3   & PIN\_E17 \\
+    sg4   & PIN\_F20 \\
+    sg5   & PIN\_N20 \\
+    \end{tabular}%
+    \label{tab:pin_assignments8}%
+  \end{minipage}
+\end{table}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics*[width=1\linewidth]{full_counter.png}
+  \caption{Partial View of T Flip Flop Counter Design}  
+\end{figure}
+
+Once completed, the design is compiled and then Verilog files were exported. These were then used in ModelSim to verify the that the design works as anticipated.
+
 \vspace{5mm}
 \hrule
 
 \section*{\textcolor{mycolor}{Simulation}}
-Simulation description, results table
+For the simulation, the Quartus project files were exported as Verilog files and the lab was simulated in ModelSim (fig. 4). Once the design has passed simulation, the counter will be programmed onto the board.
+\begin{figure}[H]
+  \centering
+  \includegraphics*[width=1\linewidth]{modelsim.png}
+  \caption{Counter Design Simulation}  
+\end{figure}
 \vspace{5mm}
 \hrule
 
 \section*{\textcolor{mycolor}{Implementation}}
-Implementation description, results table, picture of implementation
+The DE10-Lite was programmed successfully with the counter design. In it's implementation the slowest counter nearly reached a frequency of 1 Hz.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics*[width=1\linewidth]{implementation.png}
+  \caption{Counter Design Implementation}  
+\end{figure}
 \vspace{5mm}
 \hrule
 
 \section*{\textcolor{mycolor}{Observations}}
-Observations of the lab
+In this lab the most challenging aspect was acquiring precise timing. When first implementing the design it was calculated that 26 total TFF's would be needed to achieve 1 Hz. The divider initially used had 2 TFF's which, with the 6 cascaded 4 TFF counter, would have met that total. When implemented the counters frequency was faster than 1 Hz. After adding 3 more, the frequency reached it's closest value.
 \vspace{5mm}
 \hrule
 
 \section*{\textcolor{mycolor}{Conclusion}}
-Summary of the lab and its outcomes
+In this lab, the objective was to design and implement a counter system using T flip-flops to slow down a 50 MHz clock frequency to achieve a frequency as close to 1 Hz as possible. The DE10-Lite board was used to drive six digits of seven-segment displays by outputting a counter to each digit synchronized with the clock signal. The lab aimed to enhance knowledge and skills in digital logic design, introduce the concept of state memory, and gain practical experience in implementing clock-controlled systems.
+
+The design involved cascading T flip-flops to create a counter. Each T flip-flop acted as a division by two to the input clock speed. By carefully selecting the number of flip-flops used, a frequency close to 1 Hz was achieved. The design was implemented using Quartus Prime and verified through simulation in ModelSim. The final design was successfully programmed onto the DE10-Lite board.
+
+During the implementation, precise timing was a challenge. Initially, the chosen divider did not produce the desired frequency, and additional flip-flops were added to adjust the timing. The implemented counter achieved a frequency nearly reaching 1 Hz.
+
+In conclusion, this lab provided a practical understanding of digital circuits and the implementation of clock-controlled systems. The objectives of enhancing knowledge and skills in digital logic design were successfully met. The use of T flip-flops proved effective in dividing the clock frequency, and the design was implemented and verified.
 \vspace{5mm}
 \hrule
 
 \section*{\textcolor{mycolor}{Study Questions}}
-\subsubsection*{\textcolor{mycolor}{1. Study question 1}}
-Answer to question 1
-\subsubsection*{\textcolor{mycolor}{2. Study question 2}}
-Answer to question 2
-\subsubsection*{\textcolor{mycolor}{3. Study question 3}}
-Answer to question 3
-\subsubsection*{\textcolor{mycolor}{4. Study question 4}}
-Answer to question 4
-\subsubsection*{\textcolor{mycolor}{5. Study question 5}}
-Answer to question 5
-\section*{\textcolor{mycolor}{Appendix}}
+\subsubsection*{\textcolor{mycolor}{1.Why did the counter count down before the inverters were added to the design? Answer this with respect to the operation of the Flip flop.}}
+The output of the T Flip Flop is opposite the clock signal, this is the root of the effect of the counter counting down. When inverters were placed before the clock input, this effectively worked to flip the direction of counting around to counting up.
+\subsubsection*{\textcolor{mycolor}{2. What would happen if the T Flip-flops were replaced with D flip-flops in this design?}}
+The T flip flop specifically toggles it's out put to the opposite value each rising edge of the clock. This has the effect of halving the speed of the input clock signal. D flip flops on the other hand output whatever value the data signal contains when the rising edge of the clock input occurs.
 
+This means that it isn't a guarantee that the output clock of the flip flop will always be the value we want, since it would require very specific timing of all the D inputs for each cascaded flip flop. Additional logic elements would need to be designed in order to accomplish a similar counter, adding to a more complex overall design.
+
+
+\subsubsection*{\textcolor{mycolor}{3. Did you use the 10 Mhz or the 50 MHz clock in your design, and why?}}
+I chose to use to the 50 MHz clock in my design because when doing the division beginning at the two respective clock speeds, the 50 MHz clock speed had the least amount of error with respect to 1 Hz when divided.
+
+\newpage
+\section*{\textcolor{mycolor}{Appendix}}
+\subsection*{\textcolor{mycolor}{1}}
+\begin{lstlisting}
+  // Christopher Hunt
+  // ENGR 271
+  // HW5
+  // sevenseg.sv
+  
+  module sevenseg (
+      input logic[3:0] D,
+      output logic S_a, S_b, S_c, S_d, S_e, S_f, S_g
+  );
+      assign S_a = ~D[3] & ~D[2] & ~D[1] & D[0] |
+                   ~D[3] & D[2] & ~D[1] & ~D[0] |
+                   D[3] & D[2] & ~D[1] & D[0] |
+                   D[3] & ~D[2] & D[1] & D[0];
+  
+      assign S_b = D[2] & D[1] & ~D[0] |
+                   D[3] & D[1] & D[0] |
+                   D[3] & D[2] & ~D[0] |
+                   ~D[3] & D[2] & ~D[1] & D[0];
+      
+      assign S_c = D[3] & D[2] & ~D[0] |
+                   D[3] & D[2] & D[1] |
+                   ~D[3] & ~D[2] & D[1] & ~D[0];
+  
+      assign S_d = D[2] & D[1] & D[0] |
+                   ~D[3] & ~D[2] & ~D[1] & D[0] |
+                   ~D[3] & D[2] & ~D[1] & ~D[0] |
+                   D[3] & ~D[2] & D[1] & ~D[0];
+      
+      assign S_e = ~D[2] & ~D[1] & D[0] |
+                   ~D[3] & D[2] & ~D[1] |
+                   ~D[3] & D[2] & D[0] |
+                   ~D[3] & ~D[2] & D[0];
+  
+      assign S_f = ~D[3] & ~D[2] & D[0] |
+                   ~D[3] & ~D[2] & D[1] |
+                   ~D[3] & D[1] & D[0] |
+                   D[3] & D[2] & ~D[1] & D[0];
+      
+      assign S_g = ~D[3] & ~D[2] & ~D[1] |
+                   D[3] & D[2] & ~D[1] & ~D[0] |
+                   ~D[3] & D[2] & D[1] & D[0] ;
+  endmodule 
+\end{lstlisting}
 \end{document}
 

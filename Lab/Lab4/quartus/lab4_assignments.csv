@@ -1,0 +1,66 @@
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+
+# Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# File: /home/chunt/Code/ENGR271/Lab/Lab4/quartus/lab4_assignments.csv
+# Generated on: Sat May 13 16:17:33 2023
+
+Status,From,To,Assignment Name,Value,Enabled,Entity,Comment,Tag
+Ok,,enable,Location,PIN_C10,Yes,,,
+Ok,,reset,Location,PIN_C11,Yes,,,
+Ok,,sa0,Location,PIN_C14,Yes,,,
+Ok,,sa1,Location,PIN_C18,Yes,,,
+Ok,,sa2,Location,PIN_B20,Yes,,,
+Ok,,sa3,Location,PIN_F21,Yes,,,
+Ok,,sa4,Location,PIN_F18,Yes,,,
+Ok,,sa5,Location,PIN_J20,Yes,,,
+Ok,,sb0,Location,PIN_E15,Yes,,,
+Ok,,sb1,Location,PIN_D18,Yes,,,
+Ok,,sb2,Location,PIN_A20,Yes,,,
+Ok,,sb3,Location,PIN_E22,Yes,,,
+Ok,,sb4,Location,PIN_E20,Yes,,,
+Ok,,sb5,Location,PIN_K20,Yes,,,
+Ok,,sc0,Location,PIN_C15,Yes,,,
+Ok,,sc1,Location,PIN_E18,Yes,,,
+Ok,,sc2,Location,PIN_B19,Yes,,,
+Ok,,sc3,Location,PIN_E21,Yes,,,
+Ok,,sc4,Location,PIN_E19,Yes,,,
+Ok,,sc5,Location,PIN_L18,Yes,,,
+Ok,,sd0,Location,PIN_C16,Yes,,,
+Ok,,sd1,Location,PIN_B16,Yes,,,
+Ok,,sd2,Location,PIN_A21,Yes,,,
+Ok,,sd3,Location,PIN_C19,Yes,,,
+Ok,,sd4,Location,PIN_J18,Yes,,,
+Ok,,sd5,Location,PIN_N18,Yes,,,
+Ok,,se0,Location,PIN_E16,Yes,,,
+Ok,,se1,Location,PIN_A17,Yes,,,
+Ok,,se2,Location,PIN_B21,Yes,,,
+Ok,,se3,Location,PIN_C20,Yes,,,
+Ok,,se4,Location,PIN_H19,Yes,,,
+Ok,,se5,Location,PIN_M20,Yes,,,
+Ok,,sf0,Location,PIN_D17,Yes,,,
+Ok,,sf1,Location,PIN_A18,Yes,,,
+Ok,,sf2,Location,PIN_C22,Yes,,,
+Ok,,sf3,Location,PIN_D19,Yes,,,
+Ok,,sf4,Location,PIN_F19,Yes,,,
+Ok,,sf5,Location,PIN_N19,Yes,,,
+Ok,,sg0,Location,PIN_C17,Yes,,,
+Ok,,sg1,Location,PIN_B17,Yes,,,
+Ok,,sg2,Location,PIN_B22,Yes,,,
+Ok,,sg3,Location,PIN_E17,Yes,,,
+Ok,,sg4,Location,PIN_F20,Yes,,,
+Ok,,sg5,Location,PIN_N20,Yes,,,
+Ok,,clk,Location,PIN_P11,Yes,,,
+,<<new>>,<<new>>,<<new>>,,,,,
