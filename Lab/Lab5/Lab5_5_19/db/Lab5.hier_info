@@ -1,0 +1,47 @@
+|Lab5
+reset => ~NO_FANOUT~
+clk_50MHz => ~NO_FANOUT~
+sec_ones[0] <= <GND>
+sec_ones[1] <= <GND>
+sec_ones[2] <= <GND>
+sec_ones[3] <= <GND>
+sec_ones[4] <= <GND>
+sec_ones[5] <= <GND>
+sec_ones[6] <= <GND>
+sec_tens[0] <= <GND>
+sec_tens[1] <= <GND>
+sec_tens[2] <= <GND>
+sec_tens[3] <= <GND>
+sec_tens[4] <= <GND>
+sec_tens[5] <= <GND>
+sec_tens[6] <= <GND>
+min_ones[0] <= <GND>
+min_ones[1] <= <GND>
+min_ones[2] <= <GND>
+min_ones[3] <= <GND>
+min_ones[4] <= <GND>
+min_ones[5] <= <GND>
+min_ones[6] <= <GND>
+min_tens[0] <= <GND>
+min_tens[1] <= <GND>
+min_tens[2] <= <GND>
+min_tens[3] <= <GND>
+min_tens[4] <= <GND>
+min_tens[5] <= <GND>
+min_tens[6] <= <GND>
+hrs_ones[0] <= <GND>
+hrs_ones[1] <= <GND>
+hrs_ones[2] <= <GND>
+hrs_ones[3] <= <GND>
+hrs_ones[4] <= <GND>
+hrs_ones[5] <= <GND>
+hrs_ones[6] <= <GND>
+hrs_tens[0] <= <GND>
+hrs_tens[1] <= <GND>
+hrs_tens[2] <= <GND>
+hrs_tens[3] <= <GND>
+hrs_tens[4] <= <GND>
+hrs_tens[5] <= <GND>
+hrs_tens[6] <= <GND>
+
+
