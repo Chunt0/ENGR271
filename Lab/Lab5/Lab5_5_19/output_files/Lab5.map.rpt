@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Lab5
-Fri May 19 16:58:55 2023
+Thu May 25 13:15:11 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -13,10 +13,18 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Parameter Settings for User Entity Instance: counter:clk_counter
+ 11. Parameter Settings for User Entity Instance: counter:sec_counter
+ 12. Parameter Settings for User Entity Instance: counter:min_counter
+ 13. Parameter Settings for User Entity Instance: counter:hrs_counter
+ 14. Parameter Settings for Inferred Entity Instance: parser:sec_parser|lpm_divide:Mod0
+ 15. Parameter Settings for Inferred Entity Instance: parser:sec_parser|lpm_divide:Div0
+ 16. Port Connectivity Checks: "sync:hrs_sync"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
 
 
 
@@ -43,15 +51,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri May 19 16:58:55 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu May 25 13:15:11 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; Lab5                                        ;
 ; Top-level Entity Name              ; Lab5                                        ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
+; Total logic elements               ; 156                                         ;
+;     Total combinational functions  ; 154                                         ;
+;     Dedicated logic registers      ; 36                                          ;
+; Total registers                    ; 36                                          ;
 ; Total pins                         ; 44                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -153,65 +161,123 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                               ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path           ; Library ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------+---------+
-; Lab5.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/IA237-05/Desktop/Lab5/Lab5.sv ;         ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
+; parser.sv                        ; yes             ; User SystemVerilog HDL File  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv                               ;         ;
+; Lab5.sv                          ; yes             ; User SystemVerilog HDL File  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv                                 ;         ;
+; sync.sv                          ; yes             ; User SystemVerilog HDL File  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/sync.sv                                 ;         ;
+; sevenseg.sv                      ; yes             ; User SystemVerilog HDL File  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/sevenseg.sv                             ;         ;
+; counter.sv                       ; yes             ; User SystemVerilog HDL File  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/counter.sv                              ;         ;
+; comparator.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/comparator.sv                           ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/chunt/intelFPGA_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; /home/chunt/intelFPGA_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /home/chunt/intelFPGA_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; /home/chunt/intelFPGA_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc      ;         ;
+; db/lpm_divide_akl.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/lpm_divide_akl.tdf                   ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/sign_div_unsign_9kh.tdf              ;         ;
+; db/alt_u_div_see.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/alt_u_div_see.tdf                    ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/add_sub_t3c.tdf                      ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/add_sub_u3c.tdf                      ;         ;
+; db/lpm_divide_mtl.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/lpm_divide_mtl.tdf                   ;         ;
+; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/sign_div_unsign_olh.tdf              ;         ;
+; db/alt_u_div_qhe.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/alt_u_div_qhe.tdf                    ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 44    ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; reset ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 44    ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++---------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                   ;
++---------------------------------------------+-----------------+
+; Resource                                    ; Usage           ;
++---------------------------------------------+-----------------+
+; Estimated Total logic elements              ; 156             ;
+;                                             ;                 ;
+; Total combinational functions               ; 154             ;
+; Logic element usage by number of LUT inputs ;                 ;
+;     -- 4 input functions                    ; 33              ;
+;     -- 3 input functions                    ; 31              ;
+;     -- <=2 input functions                  ; 90              ;
+;                                             ;                 ;
+; Logic elements by mode                      ;                 ;
+;     -- normal mode                          ; 90              ;
+;     -- arithmetic mode                      ; 64              ;
+;                                             ;                 ;
+; Total registers                             ; 36              ;
+;     -- Dedicated logic registers            ; 36              ;
+;     -- I/O registers                        ; 0               ;
+;                                             ;                 ;
+; I/O pins                                    ; 44              ;
+;                                             ;                 ;
+; Embedded Multiplier 9-bit elements          ; 0               ;
+;                                             ;                 ;
+; Maximum fan-out node                        ; clk_50MHz~input ;
+; Maximum fan-out                             ; 30              ;
+; Total fan-out                               ; 572             ;
+; Average fan-out                             ; 2.06            ;
++---------------------------------------------+-----------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |Lab5                      ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 44   ; 0            ; 0          ; |Lab5               ; Lab5        ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                           ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                     ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |Lab5                                     ; 154 (2)             ; 36 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 44   ; 0            ; 0          ; |Lab5                                                                                                                   ; Lab5                ; work         ;
+;    |comparator:clk_comparator|            ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|comparator:clk_comparator                                                                                         ; comparator          ; work         ;
+;    |counter:clk_counter|                  ; 26 (26)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|counter:clk_counter                                                                                               ; counter             ; work         ;
+;    |counter:hrs_counter|                  ; 6 (6)               ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|counter:hrs_counter                                                                                               ; counter             ; work         ;
+;    |parser:sec_parser|                    ; 95 (6)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|parser:sec_parser                                                                                                 ; parser              ; work         ;
+;       |lpm_divide:Div0|                   ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|parser:sec_parser|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_mtl:auto_generated|  ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|parser:sec_parser|lpm_divide:Div0|lpm_divide_mtl:auto_generated                                                   ; lpm_divide_mtl      ; work         ;
+;             |sign_div_unsign_olh:divider| ; 56 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|parser:sec_parser|lpm_divide:Div0|lpm_divide_mtl:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
+;                |alt_u_div_qhe:divider|    ; 56 (56)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|parser:sec_parser|lpm_divide:Div0|lpm_divide_mtl:auto_generated|sign_div_unsign_olh:divider|alt_u_div_qhe:divider ; alt_u_div_qhe       ; work         ;
+;       |lpm_divide:Mod0|                   ; 33 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|parser:sec_parser|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_akl:auto_generated|  ; 33 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|parser:sec_parser|lpm_divide:Mod0|lpm_divide_akl:auto_generated                                                   ; lpm_divide_akl      ; work         ;
+;             |sign_div_unsign_9kh:divider| ; 33 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|parser:sec_parser|lpm_divide:Mod0|lpm_divide_akl:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh ; work         ;
+;                |alt_u_div_see:divider|    ; 33 (33)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|parser:sec_parser|lpm_divide:Mod0|lpm_divide_akl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_see:divider ; alt_u_div_see       ; work         ;
+;    |sevenseg:sec_ones_disp|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|sevenseg:sec_ones_disp                                                                                            ; sevenseg            ; work         ;
+;    |sevenseg:sec_tens_disp|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|sevenseg:sec_tens_disp                                                                                            ; sevenseg            ; work         ;
+;    |sync:clk_sync|                        ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|sync:clk_sync                                                                                                     ; sync                ; work         ;
+;    |sync:min_sync|                        ; 0 (0)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Lab5|sync:min_sync                                                                                                     ; sync                ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                            ;
++----------------------------------------+--------------------------------------+
+; Register name                          ; Reason for Removal                   ;
++----------------------------------------+--------------------------------------+
+; counter:min_counter|q[5]               ; Merged with counter:hrs_counter|q[5] ;
+; counter:sec_counter|q[5]               ; Merged with counter:hrs_counter|q[5] ;
+; counter:min_counter|q[4]               ; Merged with counter:hrs_counter|q[4] ;
+; counter:sec_counter|q[4]               ; Merged with counter:hrs_counter|q[4] ;
+; counter:min_counter|q[3]               ; Merged with counter:hrs_counter|q[3] ;
+; counter:sec_counter|q[3]               ; Merged with counter:hrs_counter|q[3] ;
+; counter:min_counter|q[2]               ; Merged with counter:hrs_counter|q[2] ;
+; counter:sec_counter|q[2]               ; Merged with counter:hrs_counter|q[2] ;
+; counter:min_counter|q[1]               ; Merged with counter:hrs_counter|q[1] ;
+; counter:sec_counter|q[1]               ; Merged with counter:hrs_counter|q[1] ;
+; counter:min_counter|q[0]               ; Merged with counter:hrs_counter|q[0] ;
+; counter:sec_counter|q[0]               ; Merged with counter:hrs_counter|q[0] ;
+; sync:sec_sync|q                        ; Merged with sync:min_sync|q          ;
+; sync:sec_sync|n1                       ; Merged with sync:min_sync|n1         ;
+; Total Number of Removed Registers = 14 ;                                      ;
++----------------------------------------+--------------------------------------+
 
 
 +------------------------------------------------------+
@@ -219,14 +285,109 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 36    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 32    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: counter:clk_counter ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; N              ; 25    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: counter:sec_counter ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; N              ; 5     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: counter:min_counter ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; N              ; 5     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: counter:hrs_counter ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; N              ; 5     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: parser:sec_parser|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_akl ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: parser:sec_parser|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------+
+; Parameter Name         ; Value          ; Type                                     ;
++------------------------+----------------+------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                  ;
+; LPM_WIDTHD             ; 4              ; Untyped                                  ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                  ;
+; LPM_PIPELINE           ; 0              ; Untyped                                  ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                  ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                  ;
+; CBXI_PARAMETER         ; lpm_divide_mtl ; Untyped                                  ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                  ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                  ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                           ;
++------------------------+----------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sync:hrs_sync"                                                                      ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; q    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -235,12 +396,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 44                          ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; cycloneiii_ff         ; 36                          ;
+;     CLR               ; 32                          ;
+;     plain             ; 4                           ;
+; cycloneiii_lcell_comb ; 154                         ;
+;     arith             ; 64                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 34                          ;
+;         3 data inputs ; 29                          ;
+;     normal            ; 90                          ;
+;         0 data inputs ; 9                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 42                          ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 33                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 20.50                       ;
+; Average LUT depth     ; 12.17                       ;
 +-----------------------+-----------------------------+
 
 
@@ -249,7 +421,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -259,85 +431,81 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri May 19 16:58:50 2023
+    Info: Processing started: Thu May 25 13:15:04 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Lab5 -c Lab5
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file parser.sv
-    Info (12023): Found entity 1: parser File: C:/Users/IA237-05/Desktop/Lab5/parser.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file lab5.sv
-    Info (12023): Found entity 1: Lab5 File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 1
+    Info (12023): Found entity 1: parser File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file Lab5.sv
+    Info (12023): Found entity 1: Lab5 File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file sync.sv
-    Info (12023): Found entity 1: sync File: C:/Users/IA237-05/Desktop/Lab5/sync.sv Line: 1
+    Info (12023): Found entity 1: sync File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/sync.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.sv
-    Info (12023): Found entity 1: sevenseg File: C:/Users/IA237-05/Desktop/Lab5/sevenseg.sv Line: 1
+    Info (12023): Found entity 1: sevenseg File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/sevenseg.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file counter.sv
-    Info (12023): Found entity 1: counter File: C:/Users/IA237-05/Desktop/Lab5/counter.sv Line: 1
+    Info (12023): Found entity 1: counter File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/counter.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file comparator.sv
-    Info (12023): Found entity 1: comparator File: C:/Users/IA237-05/Desktop/Lab5/comparator.sv Line: 1
+    Info (12023): Found entity 1: comparator File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/comparator.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file Lab5_block.bdf
+    Info (12023): Found entity 1: Lab5_block
+Warning (10236): Verilog HDL Implicit Net warning at Lab5.sv(69): created implicit net for "sec_reset" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 69
+Warning (10236): Verilog HDL Implicit Net warning at Lab5.sv(70): created implicit net for "min_reset" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 70
+Warning (10236): Verilog HDL Implicit Net warning at Lab5.sv(71): created implicit net for "hrs_reset" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 71
 Info (12127): Elaborating entity "Lab5" for the top level hierarchy
-Warning (10034): Output port "sec_ones" at Lab5.sv(5) has no driver File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 5
-Warning (10034): Output port "sec_tens" at Lab5.sv(6) has no driver File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 6
-Warning (10034): Output port "min_ones" at Lab5.sv(7) has no driver File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 7
-Warning (10034): Output port "min_tens" at Lab5.sv(8) has no driver File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 8
-Warning (10034): Output port "hrs_ones" at Lab5.sv(9) has no driver File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 9
-Warning (10034): Output port "hrs_tens" at Lab5.sv(11) has no driver File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 11
-Warning (12158): Entity "Lab5" contains only dangling pins
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "sec_ones[0]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 5
-    Warning (13410): Pin "sec_ones[1]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 5
-    Warning (13410): Pin "sec_ones[2]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 5
-    Warning (13410): Pin "sec_ones[3]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 5
-    Warning (13410): Pin "sec_ones[4]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 5
-    Warning (13410): Pin "sec_ones[5]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 5
-    Warning (13410): Pin "sec_ones[6]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 5
-    Warning (13410): Pin "sec_tens[0]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 6
-    Warning (13410): Pin "sec_tens[1]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 6
-    Warning (13410): Pin "sec_tens[2]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 6
-    Warning (13410): Pin "sec_tens[3]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 6
-    Warning (13410): Pin "sec_tens[4]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 6
-    Warning (13410): Pin "sec_tens[5]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 6
-    Warning (13410): Pin "sec_tens[6]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 6
-    Warning (13410): Pin "min_ones[0]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 7
-    Warning (13410): Pin "min_ones[1]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 7
-    Warning (13410): Pin "min_ones[2]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 7
-    Warning (13410): Pin "min_ones[3]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 7
-    Warning (13410): Pin "min_ones[4]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 7
-    Warning (13410): Pin "min_ones[5]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 7
-    Warning (13410): Pin "min_ones[6]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 7
-    Warning (13410): Pin "min_tens[0]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 8
-    Warning (13410): Pin "min_tens[1]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 8
-    Warning (13410): Pin "min_tens[2]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 8
-    Warning (13410): Pin "min_tens[3]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 8
-    Warning (13410): Pin "min_tens[4]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 8
-    Warning (13410): Pin "min_tens[5]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 8
-    Warning (13410): Pin "min_tens[6]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 8
-    Warning (13410): Pin "hrs_ones[0]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 9
-    Warning (13410): Pin "hrs_ones[1]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 9
-    Warning (13410): Pin "hrs_ones[2]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 9
-    Warning (13410): Pin "hrs_ones[3]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 9
-    Warning (13410): Pin "hrs_ones[4]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 9
-    Warning (13410): Pin "hrs_ones[5]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 9
-    Warning (13410): Pin "hrs_ones[6]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 9
-    Warning (13410): Pin "hrs_tens[0]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 11
-    Warning (13410): Pin "hrs_tens[1]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 11
-    Warning (13410): Pin "hrs_tens[2]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 11
-    Warning (13410): Pin "hrs_tens[3]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 11
-    Warning (13410): Pin "hrs_tens[4]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 11
-    Warning (13410): Pin "hrs_tens[5]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 11
-    Warning (13410): Pin "hrs_tens[6]" is stuck at GND File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 11
+Warning (10036): Verilog HDL or VHDL warning at Lab5.sv(71): object "hrs_reset" assigned a value but never read File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 71
+Info (12128): Elaborating entity "sync" for hierarchy "sync:clk_sync" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 78
+Info (12128): Elaborating entity "counter" for hierarchy "counter:clk_counter" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 83
+Warning (10230): Verilog HDL assignment warning at counter.sv(5): truncated value with size 32 to match size of target (26) File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/counter.sv Line: 5
+Info (12128): Elaborating entity "comparator" for hierarchy "comparator:clk_comparator" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 93
+Info (12128): Elaborating entity "counter" for hierarchy "counter:sec_counter" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 105
+Warning (10230): Verilog HDL assignment warning at counter.sv(5): truncated value with size 32 to match size of target (6) File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/counter.sv Line: 5
+Info (12128): Elaborating entity "parser" for hierarchy "parser:sec_parser" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 110
+Warning (10230): Verilog HDL assignment warning at parser.sv(8): truncated value with size 32 to match size of target (4) File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv Line: 8
+Warning (10230): Verilog HDL assignment warning at parser.sv(9): truncated value with size 32 to match size of target (4) File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv Line: 9
+Info (12128): Elaborating entity "sevenseg" for hierarchy "sevenseg:sec_ones_disp" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/Lab5.sv Line: 120
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "parser:sec_parser|Mod0" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv Line: 8
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "parser:sec_parser|Div0" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv Line: 9
+Info (12130): Elaborated megafunction instantiation "parser:sec_parser|lpm_divide:Mod0" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv Line: 8
+Info (12133): Instantiated megafunction "parser:sec_parser|lpm_divide:Mod0" with the following parameter: File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv Line: 8
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_akl.tdf
+    Info (12023): Found entity 1: lpm_divide_akl File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/lpm_divide_akl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9kh File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/sign_div_unsign_9kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_see.tdf
+    Info (12023): Found entity 1: alt_u_div_see File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/alt_u_div_see.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/add_sub_u3c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "parser:sec_parser|lpm_divide:Div0" File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv Line: 9
+Info (12133): Instantiated megafunction "parser:sec_parser|lpm_divide:Div0" with the following parameter: File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/parser.sv Line: 9
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_mtl.tdf
+    Info (12023): Found entity 1: lpm_divide_mtl File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/lpm_divide_mtl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_olh File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/sign_div_unsign_olh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_qhe.tdf
+    Info (12023): Found entity 1: alt_u_div_qhe File: /home/chunt/Code/ENGR271/Lab/Lab5/Lab5_5_19/db/alt_u_div_qhe.tdf Line: 27
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "reset" File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 2
-    Warning (15610): No output dependent on input pin "clk_50MHz" File: C:/Users/IA237-05/Desktop/Lab5/Lab5.sv Line: 3
-Info (21057): Implemented 44 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 200 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 42 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 54 warnings
-    Info: Peak virtual memory: 4730 megabytes
-    Info: Processing ended: Fri May 19 16:58:55 2023
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:14
+    Info (21061): Implemented 156 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 475 megabytes
+    Info: Processing ended: Thu May 25 13:15:11 2023
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:17
 
 

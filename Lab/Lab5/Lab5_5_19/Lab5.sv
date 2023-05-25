@@ -10,8 +10,6 @@ module Lab5(
 	output logic [6:0] hrs_tens
 	);
 	
-
-/* Set internal variables here */
 	// Main Clock Logic
 	
 	// counter_clk
@@ -52,7 +50,7 @@ module Lab5(
 	logic [3:0] min_tens_parser_out;
 
 	
-	// Hourse Logic
+	// Hours Logic
 	
 	// hrs_sync
 	logic hrs_true;
@@ -66,24 +64,36 @@ module Lab5(
 	logic [3:0] hrs_tens_parser_out;
 	
 
-// Assignments
-	assign clk_reset = reset | clk_true_out
-	assign sec_reset = reset | sec60_true_out
-	assign min_reset = reset | min60_true_out
-	assign hrs_reset = reset | hrs24_true_out
+	// Assignments
+	assign clk_reset = reset | clk_true_out;
+	assign sec_reset = reset | sec60_true_out;
+	assign min_reset = reset | min60_true_out;
+	assign hrs_reset = reset | hrs24_true_out;
 	
+///////////////////////////////
 	
 	sync clk_sync(
 		.clk(clk_50MHz),
 		.d(clk_true),
 		.q(clk_true_out));
 		
-	counter #(25) counter_clk(
+	counter #(25) clk_counter(
 		.clk(clk_50MHz),
 		.reset(clk_reset),
 		.q(clk_count));
+		
+	comparator clk_comparator(
+		.clk_50MHz_Count(clk_count),
+		.sec(sec_count),
+		.min(min_count),
+		.hrs(hrs_count),
+		.sec_true(sec_true),
+		.min_true(min_true),
+		.hrs_true(hrs_true),
+		.clk_true(clk_true));
 	
-	
+///////////////////////////////
+
 	sync sec_sync(
 		.clk(clk_50MHz),
 		.d(sec_true),
@@ -97,14 +107,29 @@ module Lab5(
 	parser sec_parser(
 		.value(sec_count),
 		.ones(sec_ones_parser_out),
-		.tens(sec_tens_parser_out);
+		.tens(sec_tens_parser_out));
 	
 	sevenseg sec_ones_disp(
-		.D(sec_ones_parser_out));
+		.D(sec_ones_parser_out),
+		.Sa(sec_ones[0]),
+		.Sb(sec_ones[1]),
+		.Sc(sec_ones[2]),
+		.Sd(sec_ones[3]),
+		.Se(sec_ones[4]),
+		.Sf(sec_ones[5]),
+		.Sg(sec_ones[6]));
 	
 	sevenseg sec_tens_disp(
-		.D(sec_tens_parser_out));
+		.D(sec_tens_parser_out),
+		.Sa(sec_tens[0]),
+		.Sb(sec_tens[1]),
+		.Sc(sec_tens[2]),
+		.Sd(sec_tens[3]),
+		.Se(sec_tens[4]),
+		.Sf(sec_tens[5]),
+		.Sg(sec_tens[6]));
 	
+///////////////////////////////
 	
 	sync min_sync(
 		.clk(clk_50MHz),
@@ -119,15 +144,30 @@ module Lab5(
 	parser min_parser(
 		.value(min_count),
 		.ones(min_ones_parser_out),
-		.tens(min_tens_parser_out);
+		.tens(min_tens_parser_out));
 	
 	sevenseg min_ones_disp(
-		.D(min_ones_parser_out);
+		.D(min_ones_parser_out),
+		.Sa(min_ones[0]),
+		.Sb(min_ones[1]),
+		.Sc(min_ones[2]),
+		.Sd(min_ones[3]),
+		.Se(min_ones[4]),
+		.Sf(min_ones[5]),
+		.Sg(min_ones[6]));
 	
 	sevenseg min_tens_disp(
-		.D(min_tens_parser_out);
+		.D(min_tens_parser_out),
+		.Sa(min_tens[0]),
+		.Sb(min_tens[1]),
+		.Sc(min_tens[2]),
+		.Sd(min_tens[3]),
+		.Se(min_tens[4]),
+		.Sf(min_tens[5]),
+		.Sg(min_tens[6]));
 	
-	
+///////////////////////////////
+
 	sync hrs_sync(
 		.clk(clk_50MHz),
 		.d(hrs_true),
@@ -141,13 +181,26 @@ module Lab5(
 	parser hrs_parser(
 		.value(hrs_count),
 		.ones(hrs_ones_parser_out),
-		.tens(hrs_tens_parser_out);
+		.tens(hrs_tens_parser_out));
 	
-	sevenseg hrs_ones_disp();
+	sevenseg hrs_ones_disp(
+		.D(hrs_ones_parser_out),
+		.Sa(hrs_ones[0]),
+		.Sb(hrs_ones[1]),
+		.Sc(hrs_ones[2]),
+		.Sd(hrs_ones[3]),
+		.Se(hrs_ones[4]),
+		.Sf(hrs_ones[5]),
+		.Sg(hrs_ones[6]));
 	
-	sevenseg hrs_tens_disp();
-	
-	
-		
+	sevenseg hrs_tens_disp(
+		.D(hrs_tens_parser_out),
+		.Sa(hrs_tens[0]),
+		.Sb(hrs_tens[1]),
+		.Sc(hrs_tens[2]),
+		.Sd(hrs_tens[3]),
+		.Se(hrs_tens[4]),
+		.Sf(hrs_tens[5]),
+		.Sg(hrs_tens[6]));
 	
 endmodule
