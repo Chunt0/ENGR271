@@ -1,0 +1,37 @@
+# Compile of comparator.sv was successful.
+# Compile of counter.sv was successful.
+# Compile of Lab5.sv was successful.
+# Compile of parser.sv was successful.
+# Compile of sevenseg.sv was successful.
+# Compile of sync.sv was successful.
+# 6 compiles, 0 failed with no errors.
+vsim -gui work.Lab5
+# vsim -gui work.Lab5 
+# Start time: 16:46:25 on Jun 02,2023
+# Loading sv_std.std
+# Loading work.Lab5
+# Loading work.sync
+# Loading work.counter
+# Loading work.comparator
+# Loading work.parser
+# Loading work.sevenseg
+add wave -position insertpoint  \
+sim:/Lab5/reset \
+sim:/Lab5/clk_50MHz \
+sim:/Lab5/sec_ones \
+sim:/Lab5/sec_tens \
+sim:/Lab5/min_ones \
+sim:/Lab5/min_tens \
+sim:/Lab5/hrs_ones \
+sim:/Lab5/hrs_tens
+force -freeze sim:/Lab5/clk_50MHz 1 0, 0 {50 ps} -r 100
+force -freeze sim:/Lab5/clk_50MHz 1 0, 0 {50 ps} -r 100
+force -freeze sim:/Lab5/reset 1 0
+force -freeze sim:/Lab5/reset St1 0
+force -freeze sim:/Lab5/reset 0 0
+force -freeze sim:/Lab5/reset 1 0
+run
+force -freeze sim:/Lab5/reset 0 0
+run
+# End time: 16:53:41 on Jun 02,2023, Elapsed time: 0:07:16
+# Errors: 0, Warnings: 5

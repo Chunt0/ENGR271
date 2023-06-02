@@ -1,0 +1,43 @@
+C:/Users/IA237-05/Desktop/Lab5_5_19/Lab5.sv {1 {vlog -work work -sv -stats=none C:/Users/IA237-05/Desktop/Lab5_5_19/Lab5.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Lab5
+
+Top level modules:
+	Lab5
+
+} {} {}} C:/Users/IA237-05/Desktop/Lab5_5_19/comparator.sv {1 {vlog -work work -sv -stats=none C:/Users/IA237-05/Desktop/Lab5_5_19/comparator.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module comparator
+
+Top level modules:
+	comparator
+
+} {} {}} C:/Users/IA237-05/Desktop/Lab5_5_19/counter.sv {1 {vlog -work work -sv -stats=none C:/Users/IA237-05/Desktop/Lab5_5_19/counter.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module counter
+
+Top level modules:
+	counter
+
+} {} {}} C:/Users/IA237-05/Desktop/Lab5_5_19/sevenseg.sv {1 {vlog -work work -sv -stats=none C:/Users/IA237-05/Desktop/Lab5_5_19/sevenseg.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sevenseg
+
+Top level modules:
+	sevenseg
+
+} {} {}} C:/Users/IA237-05/Desktop/Lab5_5_19/parser.sv {1 {vlog -work work -sv -stats=none C:/Users/IA237-05/Desktop/Lab5_5_19/parser.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module parser
+
+Top level modules:
+	parser
+
+} {} {}} C:/Users/IA237-05/Desktop/Lab5_5_19/sync.sv {1 {vlog -work work -sv -stats=none C:/Users/IA237-05/Desktop/Lab5_5_19/sync.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module sync
+
+Top level modules:
+	sync
+
+} {} {}}
