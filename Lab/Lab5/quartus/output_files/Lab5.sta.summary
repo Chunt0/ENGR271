@@ -3,22 +3,22 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk_50MHz'
-Slack : -2.234
-TNS   : -40.782
+Slack : -2.230
+TNS   : -40.088
 
 Type  : Slow 1200mV 85C Model Setup 'sync:sec_sync|q'
-Slack : -1.064
-TNS   : -3.848
+Slack : -1.068
+TNS   : -3.868
 
 Type  : Slow 1200mV 85C Model Setup 'sync:clk_sync|q'
-Slack : -1.061
-TNS   : -3.855
+Slack : -1.067
+TNS   : -3.878
 
 Type  : Slow 1200mV 85C Model Setup 'sync:min_sync|q'
-Slack : -1.053
-TNS   : -3.815
+Slack : -1.049
+TNS   : -3.797
 
-Type  : Slow 1200mV 85C Model Hold 'sync:clk_sync|q'
+Type  : Slow 1200mV 85C Model Hold 'clk_50MHz'
 Slack : 0.362
 TNS   : 0.000
 
@@ -26,44 +26,44 @@ Type  : Slow 1200mV 85C Model Hold 'sync:min_sync|q'
 Slack : 0.362
 TNS   : 0.000
 
+Type  : Slow 1200mV 85C Model Hold 'sync:clk_sync|q'
+Slack : 0.363
+TNS   : 0.000
+
 Type  : Slow 1200mV 85C Model Hold 'sync:sec_sync|q'
 Slack : 0.363
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'clk_50MHz'
-Slack : 0.412
-TNS   : 0.000
+Type  : Slow 1200mV 85C Model Recovery 'sync:sec_sync|q'
+Slack : -2.202
+TNS   : -13.212
 
 Type  : Slow 1200mV 85C Model Recovery 'clk_50MHz'
-Slack : -1.909
-TNS   : -49.608
+Slack : -2.018
+TNS   : -52.143
 
 Type  : Slow 1200mV 85C Model Recovery 'sync:clk_sync|q'
-Slack : -1.702
-TNS   : -10.212
+Slack : -1.594
+TNS   : -9.564
 
 Type  : Slow 1200mV 85C Model Recovery 'sync:min_sync|q'
-Slack : -1.649
-TNS   : -9.894
-
-Type  : Slow 1200mV 85C Model Recovery 'sync:sec_sync|q'
-Slack : -1.572
-TNS   : -9.432
-
-Type  : Slow 1200mV 85C Model Removal 'sync:sec_sync|q'
-Slack : 1.570
-TNS   : 0.000
+Slack : -1.441
+TNS   : -8.646
 
 Type  : Slow 1200mV 85C Model Removal 'sync:clk_sync|q'
-Slack : 1.633
+Slack : 1.506
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'clk_50MHz'
-Slack : 1.750
+Slack : 1.837
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'sync:min_sync|q'
-Slack : 2.089
+Slack : 1.871
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'sync:sec_sync|q'
+Slack : 2.049
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50MHz'
@@ -83,22 +83,22 @@ Slack : -1.403
 TNS   : -8.418
 
 Type  : Slow 1200mV 0C Model Setup 'clk_50MHz'
-Slack : -1.899
-TNS   : -33.751
-
-Type  : Slow 1200mV 0C Model Setup 'sync:sec_sync|q'
-Slack : -0.874
-TNS   : -3.055
+Slack : -1.898
+TNS   : -33.464
 
 Type  : Slow 1200mV 0C Model Setup 'sync:clk_sync|q'
-Slack : -0.870
+Slack : -0.877
+TNS   : -3.082
+
+Type  : Slow 1200mV 0C Model Setup 'sync:sec_sync|q'
+Slack : -0.873
 TNS   : -3.055
 
 Type  : Slow 1200mV 0C Model Setup 'sync:min_sync|q'
 Slack : -0.858
-TNS   : -3.002
+TNS   : -2.997
 
-Type  : Slow 1200mV 0C Model Hold 'sync:clk_sync|q'
+Type  : Slow 1200mV 0C Model Hold 'clk_50MHz'
 Slack : 0.327
 TNS   : 0.000
 
@@ -106,44 +106,44 @@ Type  : Slow 1200mV 0C Model Hold 'sync:sec_sync|q'
 Slack : 0.327
 TNS   : 0.000
 
+Type  : Slow 1200mV 0C Model Hold 'sync:clk_sync|q'
+Slack : 0.328
+TNS   : 0.000
+
 Type  : Slow 1200mV 0C Model Hold 'sync:min_sync|q'
 Slack : 0.328
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'clk_50MHz'
-Slack : 0.377
-TNS   : 0.000
+Type  : Slow 1200mV 0C Model Recovery 'sync:sec_sync|q'
+Slack : -1.867
+TNS   : -11.202
 
 Type  : Slow 1200mV 0C Model Recovery 'clk_50MHz'
-Slack : -1.593
-TNS   : -41.392
+Slack : -1.715
+TNS   : -44.304
 
 Type  : Slow 1200mV 0C Model Recovery 'sync:clk_sync|q'
-Slack : -1.437
-TNS   : -8.622
+Slack : -1.345
+TNS   : -8.070
 
 Type  : Slow 1200mV 0C Model Recovery 'sync:min_sync|q'
-Slack : -1.432
-TNS   : -8.592
-
-Type  : Slow 1200mV 0C Model Recovery 'sync:sec_sync|q'
-Slack : -1.330
-TNS   : -7.980
-
-Type  : Slow 1200mV 0C Model Removal 'sync:sec_sync|q'
-Slack : 1.519
-TNS   : 0.000
+Slack : -1.241
+TNS   : -7.446
 
 Type  : Slow 1200mV 0C Model Removal 'sync:clk_sync|q'
-Slack : 1.580
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Removal 'clk_50MHz'
-Slack : 1.687
+Slack : 1.465
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'sync:min_sync|q'
-Slack : 1.930
+Slack : 1.729
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'clk_50MHz'
+Slack : 1.759
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'sync:sec_sync|q'
+Slack : 1.966
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
@@ -163,27 +163,23 @@ Slack : -1.403
 TNS   : -8.418
 
 Type  : Fast 1200mV 0C Model Setup 'clk_50MHz'
-Slack : -0.279
-TNS   : -1.688
+Slack : -0.277
+TNS   : -1.667
 
 Type  : Fast 1200mV 0C Model Setup 'sync:sec_sync|q'
-Slack : 0.175
+Slack : 0.173
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'sync:clk_sync|q'
-Slack : 0.177
+Slack : 0.175
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'sync:min_sync|q'
-Slack : 0.180
+Slack : 0.184
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk_50MHz'
-Slack : 0.144
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'sync:clk_sync|q'
-Slack : 0.155
+Slack : 0.125
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'sync:min_sync|q'
@@ -194,41 +190,45 @@ Type  : Fast 1200mV 0C Model Hold 'sync:sec_sync|q'
 Slack : 0.156
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Recovery 'clk_50MHz'
-Slack : -0.717
-TNS   : -18.629
-
-Type  : Fast 1200mV 0C Model Recovery 'sync:clk_sync|q'
-Slack : -0.511
-TNS   : -3.066
-
-Type  : Fast 1200mV 0C Model Recovery 'sync:sec_sync|q'
-Slack : -0.507
-TNS   : -3.042
-
-Type  : Fast 1200mV 0C Model Recovery 'sync:min_sync|q'
-Slack : -0.234
-TNS   : -1.404
-
-Type  : Fast 1200mV 0C Model Removal 'sync:clk_sync|q'
-Slack : 0.469
+Type  : Fast 1200mV 0C Model Hold 'sync:clk_sync|q'
+Slack : 0.157
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Removal 'sync:sec_sync|q'
-Slack : 0.501
+Type  : Fast 1200mV 0C Model Recovery 'sync:sec_sync|q'
+Slack : -0.860
+TNS   : -5.160
+
+Type  : Fast 1200mV 0C Model Recovery 'clk_50MHz'
+Slack : -0.775
+TNS   : -20.020
+
+Type  : Fast 1200mV 0C Model Recovery 'sync:clk_sync|q'
+Slack : -0.492
+TNS   : -2.952
+
+Type  : Fast 1200mV 0C Model Recovery 'sync:min_sync|q'
+Slack : -0.151
+TNS   : -0.906
+
+Type  : Fast 1200mV 0C Model Removal 'sync:clk_sync|q'
+Slack : 0.462
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'clk_50MHz'
-Slack : 0.569
+Slack : 0.624
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'sync:sec_sync|q'
+Slack : 0.702
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'sync:min_sync|q'
-Slack : 0.920
+Slack : 0.833
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50MHz'
 Slack : -3.000
-TNS   : -38.270
+TNS   : -38.162
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sync:clk_sync|q'
 Slack : -1.000

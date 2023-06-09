@@ -1,6 +1,6 @@
 Timing Analyzer report for Lab5
-Fri Jun 02 16:35:20 2023
-Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Tue Jun  6 19:29:25 2023
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
 ---------------------
@@ -75,7 +75,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------+
 ; Timing Analyzer Summary                                                     ;
 +-----------------------+-----------------------------------------------------+
-; Quartus Prime Version ; Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Quartus Prime Version ; Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Timing Analyzer       ; Legacy Timing Analyzer                              ;
 ; Revision Name         ; Lab5                                                ;
 ; Device Family         ; MAX 10                                              ;
@@ -91,16 +91,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 16          ;
-; Maximum allowed            ; 8           ;
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.15        ;
-; Maximum used               ; 8           ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.1%      ;
-;     Processors 3-8         ;   2.1%      ;
+;     Processors 2-12        ;   1.4%      ;
 +----------------------------+-------------+
 
 
@@ -121,10 +120,10 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+-----------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name      ; Note                                                          ;
 +------------+-----------------+-----------------+---------------------------------------------------------------+
-; 309.21 MHz ; 250.0 MHz       ; clk_50MHz       ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 484.5 MHz  ; 416.15 MHz      ; sync:sec_sync|q ; limit due to minimum period restriction (tmin)                ;
-; 485.2 MHz  ; 416.15 MHz      ; sync:clk_sync|q ; limit due to minimum period restriction (tmin)                ;
-; 487.09 MHz ; 416.15 MHz      ; sync:min_sync|q ; limit due to minimum period restriction (tmin)                ;
+; 309.6 MHz  ; 250.0 MHz       ; clk_50MHz       ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 483.56 MHz ; 416.15 MHz      ; sync:sec_sync|q ; limit due to minimum period restriction (tmin)                ;
+; 483.79 MHz ; 416.15 MHz      ; sync:clk_sync|q ; limit due to minimum period restriction (tmin)                ;
+; 488.04 MHz ; 416.15 MHz      ; sync:min_sync|q ; limit due to minimum period restriction (tmin)                ;
 +------------+-----------------+-----------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -134,10 +133,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+--------+---------------+
 ; Clock           ; Slack  ; End Point TNS ;
 +-----------------+--------+---------------+
-; clk_50MHz       ; -2.234 ; -40.782       ;
-; sync:sec_sync|q ; -1.064 ; -3.848        ;
-; sync:clk_sync|q ; -1.061 ; -3.855        ;
-; sync:min_sync|q ; -1.053 ; -3.815        ;
+; clk_50MHz       ; -2.230 ; -40.088       ;
+; sync:sec_sync|q ; -1.068 ; -3.868        ;
+; sync:clk_sync|q ; -1.067 ; -3.878        ;
+; sync:min_sync|q ; -1.049 ; -3.797        ;
 +-----------------+--------+---------------+
 
 
@@ -146,10 +145,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+-------+---------------+
 ; Clock           ; Slack ; End Point TNS ;
 +-----------------+-------+---------------+
-; sync:clk_sync|q ; 0.362 ; 0.000         ;
+; clk_50MHz       ; 0.362 ; 0.000         ;
 ; sync:min_sync|q ; 0.362 ; 0.000         ;
+; sync:clk_sync|q ; 0.363 ; 0.000         ;
 ; sync:sec_sync|q ; 0.363 ; 0.000         ;
-; clk_50MHz       ; 0.412 ; 0.000         ;
 +-----------------+-------+---------------+
 
 
@@ -158,10 +157,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+--------+---------------+
 ; Clock           ; Slack  ; End Point TNS ;
 +-----------------+--------+---------------+
-; clk_50MHz       ; -1.909 ; -49.608       ;
-; sync:clk_sync|q ; -1.702 ; -10.212       ;
-; sync:min_sync|q ; -1.649 ; -9.894        ;
-; sync:sec_sync|q ; -1.572 ; -9.432        ;
+; sync:sec_sync|q ; -2.202 ; -13.212       ;
+; clk_50MHz       ; -2.018 ; -52.143       ;
+; sync:clk_sync|q ; -1.594 ; -9.564        ;
+; sync:min_sync|q ; -1.441 ; -8.646        ;
 +-----------------+--------+---------------+
 
 
@@ -170,10 +169,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+-------+---------------+
 ; Clock           ; Slack ; End Point TNS ;
 +-----------------+-------+---------------+
-; sync:sec_sync|q ; 1.570 ; 0.000         ;
-; sync:clk_sync|q ; 1.633 ; 0.000         ;
-; clk_50MHz       ; 1.750 ; 0.000         ;
-; sync:min_sync|q ; 2.089 ; 0.000         ;
+; sync:clk_sync|q ; 1.506 ; 0.000         ;
+; clk_50MHz       ; 1.837 ; 0.000         ;
+; sync:min_sync|q ; 1.871 ; 0.000         ;
+; sync:sec_sync|q ; 2.049 ; 0.000         ;
 +-----------------+-------+---------------+
 
 
@@ -201,9 +200,9 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +------------+-----------------+-----------------+---------------------------------------------------------------+
 ; Fmax       ; Restricted Fmax ; Clock Name      ; Note                                                          ;
 +------------+-----------------+-----------------+---------------------------------------------------------------+
-; 344.95 MHz ; 250.0 MHz       ; clk_50MHz       ; limit due to minimum period restriction (max I/O toggle rate) ;
-; 533.62 MHz ; 416.15 MHz      ; sync:sec_sync|q ; limit due to minimum period restriction (tmin)                ;
-; 534.76 MHz ; 416.15 MHz      ; sync:clk_sync|q ; limit due to minimum period restriction (tmin)                ;
+; 345.07 MHz ; 250.0 MHz       ; clk_50MHz       ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 532.77 MHz ; 416.15 MHz      ; sync:clk_sync|q ; limit due to minimum period restriction (tmin)                ;
+; 533.9 MHz  ; 416.15 MHz      ; sync:sec_sync|q ; limit due to minimum period restriction (tmin)                ;
 ; 538.21 MHz ; 416.15 MHz      ; sync:min_sync|q ; limit due to minimum period restriction (tmin)                ;
 +------------+-----------------+-----------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -214,10 +213,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+--------+---------------+
 ; Clock           ; Slack  ; End Point TNS ;
 +-----------------+--------+---------------+
-; clk_50MHz       ; -1.899 ; -33.751       ;
-; sync:sec_sync|q ; -0.874 ; -3.055        ;
-; sync:clk_sync|q ; -0.870 ; -3.055        ;
-; sync:min_sync|q ; -0.858 ; -3.002        ;
+; clk_50MHz       ; -1.898 ; -33.464       ;
+; sync:clk_sync|q ; -0.877 ; -3.082        ;
+; sync:sec_sync|q ; -0.873 ; -3.055        ;
+; sync:min_sync|q ; -0.858 ; -2.997        ;
 +-----------------+--------+---------------+
 
 
@@ -226,10 +225,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+-------+---------------+
 ; Clock           ; Slack ; End Point TNS ;
 +-----------------+-------+---------------+
-; sync:clk_sync|q ; 0.327 ; 0.000         ;
+; clk_50MHz       ; 0.327 ; 0.000         ;
 ; sync:sec_sync|q ; 0.327 ; 0.000         ;
+; sync:clk_sync|q ; 0.328 ; 0.000         ;
 ; sync:min_sync|q ; 0.328 ; 0.000         ;
-; clk_50MHz       ; 0.377 ; 0.000         ;
 +-----------------+-------+---------------+
 
 
@@ -238,10 +237,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+--------+---------------+
 ; Clock           ; Slack  ; End Point TNS ;
 +-----------------+--------+---------------+
-; clk_50MHz       ; -1.593 ; -41.392       ;
-; sync:clk_sync|q ; -1.437 ; -8.622        ;
-; sync:min_sync|q ; -1.432 ; -8.592        ;
-; sync:sec_sync|q ; -1.330 ; -7.980        ;
+; sync:sec_sync|q ; -1.867 ; -11.202       ;
+; clk_50MHz       ; -1.715 ; -44.304       ;
+; sync:clk_sync|q ; -1.345 ; -8.070        ;
+; sync:min_sync|q ; -1.241 ; -7.446        ;
 +-----------------+--------+---------------+
 
 
@@ -250,10 +249,10 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-----------------+-------+---------------+
 ; Clock           ; Slack ; End Point TNS ;
 +-----------------+-------+---------------+
-; sync:sec_sync|q ; 1.519 ; 0.000         ;
-; sync:clk_sync|q ; 1.580 ; 0.000         ;
-; clk_50MHz       ; 1.687 ; 0.000         ;
-; sync:min_sync|q ; 1.930 ; 0.000         ;
+; sync:clk_sync|q ; 1.465 ; 0.000         ;
+; sync:min_sync|q ; 1.729 ; 0.000         ;
+; clk_50MHz       ; 1.759 ; 0.000         ;
+; sync:sec_sync|q ; 1.966 ; 0.000         ;
 +-----------------+-------+---------------+
 
 
@@ -276,7 +275,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 0.077 ns
+Worst Case Available Settling Time: 0.079 ns
 
 
 
@@ -286,10 +285,10 @@ Worst Case Available Settling Time: 0.077 ns
 +-----------------+--------+---------------+
 ; Clock           ; Slack  ; End Point TNS ;
 +-----------------+--------+---------------+
-; clk_50MHz       ; -0.279 ; -1.688        ;
-; sync:sec_sync|q ; 0.175  ; 0.000         ;
-; sync:clk_sync|q ; 0.177  ; 0.000         ;
-; sync:min_sync|q ; 0.180  ; 0.000         ;
+; clk_50MHz       ; -0.277 ; -1.667        ;
+; sync:sec_sync|q ; 0.173  ; 0.000         ;
+; sync:clk_sync|q ; 0.175  ; 0.000         ;
+; sync:min_sync|q ; 0.184  ; 0.000         ;
 +-----------------+--------+---------------+
 
 
@@ -298,10 +297,10 @@ Worst Case Available Settling Time: 0.077 ns
 +-----------------+-------+---------------+
 ; Clock           ; Slack ; End Point TNS ;
 +-----------------+-------+---------------+
-; clk_50MHz       ; 0.144 ; 0.000         ;
-; sync:clk_sync|q ; 0.155 ; 0.000         ;
+; clk_50MHz       ; 0.125 ; 0.000         ;
 ; sync:min_sync|q ; 0.156 ; 0.000         ;
 ; sync:sec_sync|q ; 0.156 ; 0.000         ;
+; sync:clk_sync|q ; 0.157 ; 0.000         ;
 +-----------------+-------+---------------+
 
 
@@ -310,10 +309,10 @@ Worst Case Available Settling Time: 0.077 ns
 +-----------------+--------+---------------+
 ; Clock           ; Slack  ; End Point TNS ;
 +-----------------+--------+---------------+
-; clk_50MHz       ; -0.717 ; -18.629       ;
-; sync:clk_sync|q ; -0.511 ; -3.066        ;
-; sync:sec_sync|q ; -0.507 ; -3.042        ;
-; sync:min_sync|q ; -0.234 ; -1.404        ;
+; sync:sec_sync|q ; -0.860 ; -5.160        ;
+; clk_50MHz       ; -0.775 ; -20.020       ;
+; sync:clk_sync|q ; -0.492 ; -2.952        ;
+; sync:min_sync|q ; -0.151 ; -0.906        ;
 +-----------------+--------+---------------+
 
 
@@ -322,10 +321,10 @@ Worst Case Available Settling Time: 0.077 ns
 +-----------------+-------+---------------+
 ; Clock           ; Slack ; End Point TNS ;
 +-----------------+-------+---------------+
-; sync:clk_sync|q ; 0.469 ; 0.000         ;
-; sync:sec_sync|q ; 0.501 ; 0.000         ;
-; clk_50MHz       ; 0.569 ; 0.000         ;
-; sync:min_sync|q ; 0.920 ; 0.000         ;
+; sync:clk_sync|q ; 0.462 ; 0.000         ;
+; clk_50MHz       ; 0.624 ; 0.000         ;
+; sync:sec_sync|q ; 0.702 ; 0.000         ;
+; sync:min_sync|q ; 0.833 ; 0.000         ;
 +-----------------+-------+---------------+
 
 
@@ -334,7 +333,7 @@ Worst Case Available Settling Time: 0.077 ns
 +-----------------+--------+-----------------------+
 ; Clock           ; Slack  ; End Point TNS         ;
 +-----------------+--------+-----------------------+
-; clk_50MHz       ; -3.000 ; -38.270               ;
+; clk_50MHz       ; -3.000 ; -38.162               ;
 ; sync:clk_sync|q ; -1.000 ; -6.000                ;
 ; sync:min_sync|q ; -1.000 ; -6.000                ;
 ; sync:sec_sync|q ; -1.000 ; -6.000                ;
@@ -348,7 +347,7 @@ The design MTBF is not calculated because there are no specified synchronizers i
 Number of Synchronizer Chains Found: 1
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-Worst Case Available Settling Time: 0.567 ns
+Worst Case Available Settling Time: 0.570 ns
 
 
 
@@ -358,16 +357,16 @@ Worst Case Available Settling Time: 0.567 ns
 +------------------+---------+-------+----------+---------+---------------------+
 ; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+---------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -2.234  ; 0.144 ; -1.909   ; 0.469   ; -3.000              ;
-;  clk_50MHz       ; -2.234  ; 0.144 ; -1.909   ; 0.569   ; -3.000              ;
-;  sync:clk_sync|q ; -1.061  ; 0.155 ; -1.702   ; 0.469   ; -1.403              ;
-;  sync:min_sync|q ; -1.053  ; 0.156 ; -1.649   ; 0.920   ; -1.403              ;
-;  sync:sec_sync|q ; -1.064  ; 0.156 ; -1.572   ; 0.501   ; -1.403              ;
-; Design-wide TNS  ; -52.3   ; 0.0   ; -79.146  ; 0.0     ; -75.956             ;
-;  clk_50MHz       ; -40.782 ; 0.000 ; -49.608  ; 0.000   ; -50.702             ;
-;  sync:clk_sync|q ; -3.855  ; 0.000 ; -10.212  ; 0.000   ; -8.418              ;
-;  sync:min_sync|q ; -3.815  ; 0.000 ; -9.894   ; 0.000   ; -8.418              ;
-;  sync:sec_sync|q ; -3.848  ; 0.000 ; -9.432   ; 0.000   ; -8.418              ;
+; Worst-case Slack ; -2.230  ; 0.125 ; -2.202   ; 0.462   ; -3.000              ;
+;  clk_50MHz       ; -2.230  ; 0.125 ; -2.018   ; 0.624   ; -3.000              ;
+;  sync:clk_sync|q ; -1.067  ; 0.157 ; -1.594   ; 0.462   ; -1.403              ;
+;  sync:min_sync|q ; -1.049  ; 0.156 ; -1.441   ; 0.833   ; -1.403              ;
+;  sync:sec_sync|q ; -1.068  ; 0.156 ; -2.202   ; 0.702   ; -1.403              ;
+; Design-wide TNS  ; -51.631 ; 0.0   ; -83.565  ; 0.0     ; -75.956             ;
+;  clk_50MHz       ; -40.088 ; 0.000 ; -52.143  ; 0.000   ; -50.702             ;
+;  sync:clk_sync|q ; -3.878  ; 0.000 ; -9.564   ; 0.000   ; -8.418              ;
+;  sync:min_sync|q ; -3.797  ; 0.000 ; -8.646   ; 0.000   ; -8.418              ;
+;  sync:sec_sync|q ; -3.868  ; 0.000 ; -13.212  ; 0.000   ; -8.418              ;
 +------------------+---------+-------+----------+---------+---------------------+
 
 
@@ -486,7 +485,7 @@ Worst Case Available Settling Time: 0.567 ns
 ; hrs_tens[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0871 V           ; 0.291 V                              ; 0.138 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0871 V          ; 0.291 V                             ; 0.138 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; hrs_tens[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
 ; hrs_tens[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 8.25e-09 V                   ; 2.41 V              ; -0.0859 V           ; 0.289 V                              ; 0.136 V                              ; 3.15e-10 s                  ; 4.16e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 8.25e-09 V                  ; 2.41 V             ; -0.0859 V          ; 0.289 V                             ; 0.136 V                             ; 3.15e-10 s                 ; 4.16e-10 s                 ; No                        ; Yes                       ;
-; ~ALTERA_TDO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.39e-08 V                   ; 2.39 V              ; -0.0409 V           ; 0.21 V                               ; 0.121 V                              ; 4.7e-10 s                   ; 5.93e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.39e-08 V                  ; 2.39 V             ; -0.0409 V          ; 0.21 V                              ; 0.121 V                             ; 4.7e-10 s                  ; 5.93e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_TDO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.39e-08 V                   ; 2.39 V              ; -0.0407 V           ; 0.211 V                              ; 0.121 V                              ; 4.7e-10 s                   ; 5.93e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.39e-08 V                  ; 2.39 V             ; -0.0407 V          ; 0.211 V                             ; 0.121 V                             ; 4.7e-10 s                  ; 5.93e-10 s                 ; No                        ; Yes                       ;
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
@@ -537,7 +536,7 @@ Worst Case Available Settling Time: 0.567 ns
 ; hrs_tens[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.0508 V           ; 0.153 V                              ; 0.187 V                              ; 4.63e-10 s                  ; 4.49e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.0508 V          ; 0.153 V                             ; 0.187 V                             ; 4.63e-10 s                 ; 4.49e-10 s                 ; Yes                       ; Yes                       ;
 ; hrs_tens[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
 ; hrs_tens[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.16e-06 V                   ; 2.37 V              ; -0.049 V            ; 0.154 V                              ; 0.186 V                              ; 4.63e-10 s                  ; 4.5e-10 s                   ; Yes                        ; Yes                        ; 2.32 V                      ; 1.16e-06 V                  ; 2.37 V             ; -0.049 V           ; 0.154 V                             ; 0.186 V                             ; 4.63e-10 s                 ; 4.5e-10 s                  ; Yes                       ; Yes                       ;
-; ~ALTERA_TDO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.97e-06 V                   ; 2.36 V              ; -0.0173 V           ; 0.144 V                              ; 0.094 V                              ; 6.44e-10 s                  ; 7.2e-10 s                   ; No                         ; Yes                        ; 2.32 V                      ; 1.97e-06 V                  ; 2.36 V             ; -0.0173 V          ; 0.144 V                             ; 0.094 V                             ; 6.44e-10 s                 ; 7.2e-10 s                  ; No                        ; Yes                       ;
+; ~ALTERA_TDO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 1.97e-06 V                   ; 2.36 V              ; -0.0174 V           ; 0.144 V                              ; 0.094 V                              ; 6.45e-10 s                  ; 7.22e-10 s                  ; No                         ; Yes                        ; 2.32 V                      ; 1.97e-06 V                  ; 2.36 V             ; -0.0174 V          ; 0.144 V                             ; 0.094 V                             ; 6.45e-10 s                 ; 7.22e-10 s                 ; No                        ; Yes                       ;
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
@@ -588,7 +587,7 @@ Worst Case Available Settling Time: 0.567 ns
 ; hrs_tens[4]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.94e-08 V                   ; 2.78 V              ; -0.0444 V           ; 0.25 V                               ; 0.107 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.94e-08 V                  ; 2.78 V             ; -0.0444 V          ; 0.25 V                              ; 0.107 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; hrs_tens[5]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
 ; hrs_tens[6]  ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 9.95e-08 V                   ; 2.78 V              ; -0.0452 V           ; 0.248 V                              ; 0.108 V                              ; 2.67e-10 s                  ; 2.75e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 9.95e-08 V                  ; 2.78 V             ; -0.0452 V          ; 0.248 V                             ; 0.108 V                             ; 2.67e-10 s                 ; 2.75e-10 s                 ; No                        ; Yes                       ;
-; ~ALTERA_TDO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.68e-07 V                   ; 2.73 V              ; -0.0395 V           ; 0.361 V                              ; 0.109 V                              ; 3.1e-10 s                   ; 4.41e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.68e-07 V                  ; 2.73 V             ; -0.0395 V          ; 0.361 V                             ; 0.109 V                             ; 3.1e-10 s                  ; 4.41e-10 s                 ; No                        ; Yes                       ;
+; ~ALTERA_TDO~ ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 1.68e-07 V                   ; 2.73 V              ; -0.0396 V           ; 0.362 V                              ; 0.108 V                              ; 3.11e-10 s                  ; 4.42e-10 s                  ; No                         ; Yes                        ; 2.62 V                      ; 1.68e-07 V                  ; 2.73 V             ; -0.0396 V          ; 0.362 V                             ; 0.108 V                             ; 3.11e-10 s                 ; 4.42e-10 s                 ; No                        ; Yes                       ;
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
@@ -811,8 +810,8 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
-    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Jun 02 16:35:19 2023
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue Jun  6 19:29:21 2023
 Info: Command: quartus_sta Lab5 -c Lab5
 Info: qsta_default_script.tcl version: #1
 Warning (20013): Ignored 24 assignments for entity "LAB5_top" -- entity does not exist in design
@@ -891,7 +890,7 @@ Warning (20013): Ignored 24 assignments for entity "clock_top" -- entity does no
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_EXTRACT_HARD_BLOCK_NODES ON -entity clock_top -section_id Top was ignored
     Warning (20014): Assignment for entity set_global_assignment -name PARTITION_ENABLE_STRICT_PRESERVATION OFF -entity clock_top -section_id Top was ignored
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'Lab5.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
@@ -907,34 +906,34 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -2.234
+Info (332146): Worst-case setup slack is -2.230
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.234             -40.782 clk_50MHz 
-    Info (332119):    -1.064              -3.848 sync:sec_sync|q 
-    Info (332119):    -1.061              -3.855 sync:clk_sync|q 
-    Info (332119):    -1.053              -3.815 sync:min_sync|q 
+    Info (332119):    -2.230             -40.088 clk_50MHz 
+    Info (332119):    -1.068              -3.868 sync:sec_sync|q 
+    Info (332119):    -1.067              -3.878 sync:clk_sync|q 
+    Info (332119):    -1.049              -3.797 sync:min_sync|q 
 Info (332146): Worst-case hold slack is 0.362
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.362               0.000 sync:clk_sync|q 
+    Info (332119):     0.362               0.000 clk_50MHz 
     Info (332119):     0.362               0.000 sync:min_sync|q 
+    Info (332119):     0.363               0.000 sync:clk_sync|q 
     Info (332119):     0.363               0.000 sync:sec_sync|q 
-    Info (332119):     0.412               0.000 clk_50MHz 
-Info (332146): Worst-case recovery slack is -1.909
+Info (332146): Worst-case recovery slack is -2.202
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.909             -49.608 clk_50MHz 
-    Info (332119):    -1.702             -10.212 sync:clk_sync|q 
-    Info (332119):    -1.649              -9.894 sync:min_sync|q 
-    Info (332119):    -1.572              -9.432 sync:sec_sync|q 
-Info (332146): Worst-case removal slack is 1.570
+    Info (332119):    -2.202             -13.212 sync:sec_sync|q 
+    Info (332119):    -2.018             -52.143 clk_50MHz 
+    Info (332119):    -1.594              -9.564 sync:clk_sync|q 
+    Info (332119):    -1.441              -8.646 sync:min_sync|q 
+Info (332146): Worst-case removal slack is 1.506
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.570               0.000 sync:sec_sync|q 
-    Info (332119):     1.633               0.000 sync:clk_sync|q 
-    Info (332119):     1.750               0.000 clk_50MHz 
-    Info (332119):     2.089               0.000 sync:min_sync|q 
+    Info (332119):     1.506               0.000 sync:clk_sync|q 
+    Info (332119):     1.837               0.000 clk_50MHz 
+    Info (332119):     1.871               0.000 sync:min_sync|q 
+    Info (332119):     2.049               0.000 sync:sec_sync|q 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -949,34 +948,34 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.899
+Info (332146): Worst-case setup slack is -1.898
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.899             -33.751 clk_50MHz 
-    Info (332119):    -0.874              -3.055 sync:sec_sync|q 
-    Info (332119):    -0.870              -3.055 sync:clk_sync|q 
-    Info (332119):    -0.858              -3.002 sync:min_sync|q 
+    Info (332119):    -1.898             -33.464 clk_50MHz 
+    Info (332119):    -0.877              -3.082 sync:clk_sync|q 
+    Info (332119):    -0.873              -3.055 sync:sec_sync|q 
+    Info (332119):    -0.858              -2.997 sync:min_sync|q 
 Info (332146): Worst-case hold slack is 0.327
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.327               0.000 sync:clk_sync|q 
+    Info (332119):     0.327               0.000 clk_50MHz 
     Info (332119):     0.327               0.000 sync:sec_sync|q 
+    Info (332119):     0.328               0.000 sync:clk_sync|q 
     Info (332119):     0.328               0.000 sync:min_sync|q 
-    Info (332119):     0.377               0.000 clk_50MHz 
-Info (332146): Worst-case recovery slack is -1.593
+Info (332146): Worst-case recovery slack is -1.867
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.593             -41.392 clk_50MHz 
-    Info (332119):    -1.437              -8.622 sync:clk_sync|q 
-    Info (332119):    -1.432              -8.592 sync:min_sync|q 
-    Info (332119):    -1.330              -7.980 sync:sec_sync|q 
-Info (332146): Worst-case removal slack is 1.519
+    Info (332119):    -1.867             -11.202 sync:sec_sync|q 
+    Info (332119):    -1.715             -44.304 clk_50MHz 
+    Info (332119):    -1.345              -8.070 sync:clk_sync|q 
+    Info (332119):    -1.241              -7.446 sync:min_sync|q 
+Info (332146): Worst-case removal slack is 1.465
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.519               0.000 sync:sec_sync|q 
-    Info (332119):     1.580               0.000 sync:clk_sync|q 
-    Info (332119):     1.687               0.000 clk_50MHz 
-    Info (332119):     1.930               0.000 sync:min_sync|q 
+    Info (332119):     1.465               0.000 sync:clk_sync|q 
+    Info (332119):     1.729               0.000 sync:min_sync|q 
+    Info (332119):     1.759               0.000 clk_50MHz 
+    Info (332119):     1.966               0.000 sync:sec_sync|q 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -989,43 +988,43 @@ Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 0.077 ns
+    Info (332114): Worst Case Available Settling Time: 0.079 ns
     Info (332114): 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.279
+Info (332146): Worst-case setup slack is -0.277
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.279              -1.688 clk_50MHz 
-    Info (332119):     0.175               0.000 sync:sec_sync|q 
-    Info (332119):     0.177               0.000 sync:clk_sync|q 
-    Info (332119):     0.180               0.000 sync:min_sync|q 
-Info (332146): Worst-case hold slack is 0.144
+    Info (332119):    -0.277              -1.667 clk_50MHz 
+    Info (332119):     0.173               0.000 sync:sec_sync|q 
+    Info (332119):     0.175               0.000 sync:clk_sync|q 
+    Info (332119):     0.184               0.000 sync:min_sync|q 
+Info (332146): Worst-case hold slack is 0.125
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.144               0.000 clk_50MHz 
-    Info (332119):     0.155               0.000 sync:clk_sync|q 
+    Info (332119):     0.125               0.000 clk_50MHz 
     Info (332119):     0.156               0.000 sync:min_sync|q 
     Info (332119):     0.156               0.000 sync:sec_sync|q 
-Info (332146): Worst-case recovery slack is -0.717
+    Info (332119):     0.157               0.000 sync:clk_sync|q 
+Info (332146): Worst-case recovery slack is -0.860
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.717             -18.629 clk_50MHz 
-    Info (332119):    -0.511              -3.066 sync:clk_sync|q 
-    Info (332119):    -0.507              -3.042 sync:sec_sync|q 
-    Info (332119):    -0.234              -1.404 sync:min_sync|q 
-Info (332146): Worst-case removal slack is 0.469
+    Info (332119):    -0.860              -5.160 sync:sec_sync|q 
+    Info (332119):    -0.775             -20.020 clk_50MHz 
+    Info (332119):    -0.492              -2.952 sync:clk_sync|q 
+    Info (332119):    -0.151              -0.906 sync:min_sync|q 
+Info (332146): Worst-case removal slack is 0.462
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.469               0.000 sync:clk_sync|q 
-    Info (332119):     0.501               0.000 sync:sec_sync|q 
-    Info (332119):     0.569               0.000 clk_50MHz 
-    Info (332119):     0.920               0.000 sync:min_sync|q 
+    Info (332119):     0.462               0.000 sync:clk_sync|q 
+    Info (332119):     0.624               0.000 clk_50MHz 
+    Info (332119):     0.702               0.000 sync:sec_sync|q 
+    Info (332119):     0.833               0.000 sync:min_sync|q 
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000             -38.270 clk_50MHz 
+    Info (332119):    -3.000             -38.162 clk_50MHz 
     Info (332119):    -1.000              -6.000 sync:clk_sync|q 
     Info (332119):    -1.000              -6.000 sync:min_sync|q 
     Info (332119):    -1.000              -6.000 sync:sec_sync|q 
@@ -1034,14 +1033,14 @@ Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): Number of Synchronizer Chains Found: 1
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 1.000
-    Info (332114): Worst Case Available Settling Time: 0.567 ns
+    Info (332114): Worst Case Available Settling Time: 0.570 ns
     Info (332114): 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 80 warnings
-    Info: Peak virtual memory: 4874 megabytes
-    Info: Processing ended: Fri Jun 02 16:35:20 2023
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 616 megabytes
+    Info: Processing ended: Tue Jun  6 19:29:25 2023
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 

@@ -1,11 +1,11 @@
-Fitter Status : Successful - Fri Jun 02 16:35:15 2023
-Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Fitter Status : Successful - Tue Jun  6 19:29:18 2023
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : Lab5
 Top-level Entity Name : Lab5
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 395 / 49,760 ( < 1 % )
+Total logic elements : 396 / 49,760 ( < 1 % )
     Total combinational functions : 391 / 49,760 ( < 1 % )
     Dedicated logic registers : 52 / 49,760 ( < 1 % )
 Total registers : 52
